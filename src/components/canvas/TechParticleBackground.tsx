@@ -1,0 +1,143 @@
+'use client';
+
+import React, { useEffect, useRef } from 'react';
+
+interface Particle {
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
+  symbol: string;
+  size: number;
+  baseOpacity: number;
+  opacity: number;
+  color: string;
+}
+
+export const TechParticleBackground = () => {
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    let animationFrameId: number;
+    const symbols = ['< >', '{ }', ';', '0101', '=>', '&&', '||', '!=', '/>', 'git', 'npm', 'const'];
+    const colors = ['#00F0FF', '#8B5CF6', '#38BDF8'];
+
+    let width = (canvas.width = window.innerWidth);
+    let height = (canvas.height = window.innerHeight);
+
+    let mouse = {
+      x: -1000,
+      y: -1000,
+      radius: 140,
+    };
+
+    const handleResize = () => {
+      if (!canvas) return;
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    };
+
+    const handleMouseMove = (e: MouseEvent) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+    };
+
+    const handleMouseLeave = () => {
+      mouse.x = -1000;
+      mouse.y = -1000;
+    };
+
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mouseleave', handleMouseLeave);
+
+    const particleCount = Math.min(45, Math.floor((width * height) / 28000));
+    const particles: Particle[] = Array.from({ length: particleCount }, () => {
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      const baseOpacity = 0.15 + Math.random() * 0.25;
+      return {
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: -(0.3 + Math.random() * 0.6), // float upward
+        symbol: symbols[Math.floor(Math.random() * symbols.length)],
+        size: 11 + Math.random() * 6,
+        baseOpacity,
+        opacity: baseOpacity,
+        color,
+      };
+    });
+
+    const render = () => {
+      ctx.clearRect(0, 0, width, height);
+
+      particles.forEach((p) => {
+        p.y += p.vy;
+        p.x += p.vx;
+
+        // Wrap around borders
+        if (p.y < -30) {
+          p.y = height + 30;
+          p.x = Math.random() * width;
+        }
+        if (p.x < -30) p.x = width + 30;
+        if (p.x > width + 30) p.x = -30;
+
+        // Interactive mouse repulsion
+        const dx = mouse.x - p.x;
+        const dy = mouse.y - p.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+
+        let activeOpacity = p.baseOpacity;
+        if (dist < mouse.radius && dist > 0) {
+          const force = (mouse.radius - dist) / mouse.radius;
+          p.x -= (dx / dist) * force * 3;
+          p.y -= (dy / dist) * force * 3;
+          activeOpacity = Math.min(0.9, p.baseOpacity + 0.5);
+        }
+
+        ctx.font = `600 ${p.size}px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace`;
+        ctx.fillStyle = p.color;
+        ctx.globalAlpha = activeOpacity;
+        ctx.fillText(p.symbol, p.x, p.y);
+      });
+
+      // Subtle cyber grid dots
+      ctx.globalAlpha = 0.05;
+      ctx.fillStyle = '#00F0FF';
+      const step = 60;
+      for (let x = 0; x < width; x += step) {
+        for (let y = 0; y < height; y += step) {
+          ctx.beginPath();
+          ctx.arc(x, y, 1, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+
+      ctx.globalAlpha = 1;
+      animationFrameId = requestAnimationFrame(render);
+    };
+
+    render();
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mouseleave', handleMouseLeave);
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, []);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="pointer-events-none fixed inset-0 z-0 h-full w-full"
+      aria-hidden="true"
+    />
+  );
+};

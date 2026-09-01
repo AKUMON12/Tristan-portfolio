@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgCam" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#061219" />
+      <stop offset="100%" stop-color="#030A0E" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bgCam)" />
+
+  <rect x="50" y="40" width="700" height="370" rx="16" fill="#0C1B24" stroke="#10B981" stroke-opacity="0.35" stroke-width="1.5" />
+  <rect x="50" y="40" width="700" height="42" rx="16" fill="#142B39" />
+  <circle cx="80" cy="61" r="5" fill="#EF4444" />
+  <circle cx="98" cy="61" r="5" fill="#F59E0B" />
+  <circle cx="116" cy="61" r="5" fill="#10B981" />
+  <text x="140" y="66" fill="#6EE7B7" font-family="monospace" font-size="12" font-weight="600">campass-edge-ai.iot • ESP32-CAM Biometrics</text>
+
+  <!-- Camera Viewport / Edge AI Face Detection -->
+  <rect x="80" y="105" width="410" height="275" rx="12" fill="#061016" stroke="#334155" stroke-width="1" />
+  
+  <!-- Face Detection Bounding Box -->
+  <rect x="185" y="145" width="200" height="200" rx="8" fill="none" stroke="#10B981" stroke-width="2.5" stroke-dasharray="12,6" />
+  <!-- Corner ticks -->
+  <path d="M 175,155 L 175,135 L 195,135" fill="none" stroke="#10B981" stroke-width="3" />
+  <path d="M 375,135 L 395,135 L 395,155" fill="none" stroke="#10B981" stroke-width="3" />
+  <path d="M 175,335 L 175,355 L 195,355" fill="none" stroke="#10B981" stroke-width="3" />
+  <path d="M 375,355 L 395,355 L 395,335" fill="none" stroke="#10B981" stroke-width="3" />
+
+  <text x="190" y="170" fill="#10B981" font-family="monospace" font-size="12" font-weight="bold">TARGET_MATCH: 99.4%</text>
+  <text x="190" y="188" fill="#CBD5E1" font-family="monospace" font-size="11">ACCESS GRANTED • ID: 0x9AF</text>
+
+  <!-- Right Side Panel: Telemetry -->
+  <rect x="510" y="105" width="215" height="275" rx="12" fill="#112430" stroke="#334155" stroke-width="1" />
+  <text x="525" y="135" fill="#F8FAFC" font-family="system-ui" font-size="13" font-weight="bold">IoT Edge Telemetry</text>
+
+  <rect x="525" y="150" width="185" height="45" rx="8" fill="#1B374A" />
+  <text x="535" y="170" fill="#94A3B8" font-family="monospace" font-size="10">INFERENCE LATENCY</text>
+  <text x="535" y="185" fill="#10B981" font-family="monospace" font-size="13" font-weight="bold">248 ms (On-Chip)</text>
+
+  <rect x="525" y="205" width="185" height="45" rx="8" fill="#1B374A" />
+  <text x="535" y="225" fill="#94A3B8" font-family="monospace" font-size="10">ESP32-CAM CHIP</text>
+  <text x="535" y="240" fill="#38BDF8" font-family="monospace" font-size="13" font-weight="bold">Dual-Core 240MHz</text>
+
+  <rect x="525" y="260" width="185" height="45" rx="8" fill="#1B374A" />
+  <text x="535" y="280" fill="#94A3B8" font-family="monospace" font-size="10">FIREBASE SYNC</text>
+  <text x="535" y="295" fill="#FBBF24" font-family="monospace" font-size="13" font-weight="bold">Real-time Stream</text>
+</svg>

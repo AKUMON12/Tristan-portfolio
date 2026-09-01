@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgLib" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141B26" />
+      <stop offset="100%" stop-color="#080C12" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bgLib)" />
+
+  <rect x="50" y="40" width="700" height="370" rx="16" fill="#182333" stroke="#38BDF8" stroke-opacity="0.35" stroke-width="1.5" />
+  <rect x="50" y="40" width="700" height="42" rx="16" fill="#202F44" />
+  <circle cx="80" cy="61" r="5" fill="#EF4444" />
+  <circle cx="98" cy="61" r="5" fill="#F59E0B" />
+  <circle cx="116" cy="61" r="5" fill="#10B981" />
+  <text x="140" y="66" fill="#7DD3FC" font-family="monospace" font-size="12" font-weight="600">libmanage.uc-main.edu.ph • Academic Library Catalog</text>
+
+  <!-- Table View Mockup -->
+  <rect x="80" y="105" width="640" height="275" rx="12" fill="#0F1722" stroke="#334155" stroke-width="1" />
+  
+  <!-- Table Header -->
+  <rect x="80" y="105" width="640" height="40" rx="12" fill="#1E2E42" />
+  <text x="100" y="130" fill="#94A3B8" font-family="system-ui" font-size="11" font-weight="bold">ACCESSION #</text>
+  <text x="230" y="130" fill="#94A3B8" font-family="system-ui" font-size="11" font-weight="bold">BOOK TITLE</text>
+  <text x="440" y="130" fill="#94A3B8" font-family="system-ui" font-size="11" font-weight="bold">AUTHOR</text>
+  <text x="590" y="130" fill="#94A3B8" font-family="system-ui" font-size="11" font-weight="bold">STATUS</text>
+
+  <!-- Row 1 -->
+  <text x="100" y="175" fill="#38BDF8" font-family="monospace" font-size="12">UC-BK-00914</text>
+  <text x="230" y="175" fill="#FFFFFF" font-family="system-ui" font-size="12">Computer Networks (5th Ed.)</text>
+  <text x="440" y="175" fill="#CBD5E1" font-family="system-ui" font-size="12">Andrew S. Tanenbaum</text>
+  <rect x="585" y="160" width="85" height="22" rx="11" fill="#065F46" />
+  <text x="627" y="175" fill="#6EE7B7" font-family="system-ui" font-size="10" font-weight="bold" text-anchor="middle">AVAILABLE</text>
+
+  <!-- Row 2 -->
+  <line x1="80" y1="195" x2="720" y2="195" stroke="#1E293B" stroke-width="1" />
+  <text x="100" y="225" fill="#38BDF8" font-family="monospace" font-size="12">UC-BK-00823</text>
+  <text x="230" y="225" fill="#FFFFFF" font-family="system-ui" font-size="12">Clean Architecture</text>
+  <text x="440" y="225" fill="#CBD5E1" font-family="system-ui" font-size="12">Robert C. Martin</text>
+  <rect x="585" y="210" width="85" height="22" rx="11" fill="#7C2D12" />
+  <text x="627" y="225" fill="#FDBA74" font-family="system-ui" font-size="10" font-weight="bold" text-anchor="middle">BORROWED</text>
+
+  <!-- Row 3 -->
+  <line x1="80" y1="245" x2="720" y2="245" stroke="#1E293B" stroke-width="1" />
+  <text x="100" y="275" fill="#38BDF8" font-family="monospace" font-size="12">UC-BK-01209</text>
+  <text x="230" y="275" fill="#FFFFFF" font-family="system-ui" font-size="12">Artificial Intelligence A Modern Approach</text>
+  <text x="440" y="275" fill="#CBD5E1" font-family="system-ui" font-size="12">Stuart Russell</text>
+  <rect x="585" y="260" width="85" height="22" rx="11" fill="#065F46" />
+  <text x="627" y="275" fill="#6EE7B7" font-family="system-ui" font-size="10" font-weight="bold" text-anchor="middle">AVAILABLE</text>
+
+  <!-- Row 4 -->
+  <line x1="80" y1="295" x2="720" y2="295" stroke="#1E293B" stroke-width="1" />
+  <text x="100" y="325" fill="#38BDF8" font-family="monospace" font-size="12">UC-BK-00342</text>
+  <text x="230" y="325" fill="#FFFFFF" font-family="system-ui" font-size="12">Database System Concepts</text>
+  <text x="440" y="325" fill="#CBD5E1" font-family="system-ui" font-size="12">Abraham Silberschatz</text>
+  <rect x="585" y="310" width="85" height="22" rx="11" fill="#065F46" />
+  <text x="627" y="325" fill="#6EE7B7" font-family="system-ui" font-size="10" font-weight="bold" text-anchor="middle">AVAILABLE</text>
+</svg>

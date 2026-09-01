@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgNano" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#140926" />
+      <stop offset="100%" stop-color="#070312" />
+    </linearGradient>
+    <linearGradient id="atomGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A855F7" />
+      <stop offset="100%" stop-color="#EC4899" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bgNano)" />
+
+  <rect x="50" y="40" width="700" height="370" rx="16" fill="#1C1033" stroke="#A855F7" stroke-opacity="0.35" stroke-width="1.5" />
+  <rect x="50" y="40" width="700" height="42" rx="16" fill="#291849" />
+  <circle cx="80" cy="61" r="5" fill="#EF4444" />
+  <circle cx="98" cy="61" r="5" fill="#F59E0B" />
+  <circle cx="116" cy="61" r="5" fill="#10B981" />
+  <text x="140" y="66" fill="#D8B4FE" font-family="monospace" font-size="12" font-weight="600">akumon12.github.io/NanoWorld • Science Exploration Portal</text>
+
+  <!-- Atomic Orbital Diagram -->
+  <g transform="translate(230, 235)">
+    <!-- Orbits -->
+    <ellipse cx="0" cy="0" rx="130" ry="45" fill="none" stroke="#A855F7" stroke-width="2" stroke-dasharray="6,4" />
+    <ellipse cx="0" cy="0" rx="130" ry="45" fill="none" stroke="#00F0FF" stroke-width="2" stroke-dasharray="6,4" transform="rotate(60)" />
+    <ellipse cx="0" cy="0" rx="130" ry="45" fill="none" stroke="#EC4899" stroke-width="2" stroke-dasharray="6,4" transform="rotate(120)" />
+
+    <!-- Center Nucleus -->
+    <circle cx="0" cy="0" r="24" fill="url(#atomGrad)" />
+    <text x="0" y="5" fill="#FFFFFF" font-family="system-ui" font-size="12" font-weight="bold" text-anchor="middle">1 nm</text>
+
+    <!-- Electrons -->
+    <circle cx="130" cy="0" r="7" fill="#00F0FF" />
+    <circle cx="-65" cy="56" r="7" fill="#A855F7" />
+    <circle cx="-65" cy="-56" r="7" fill="#EC4899" />
+  </g>
+
+  <!-- Right Side Interactive Module Cards -->
+  <rect x="420" y="115" width="295" height="75" rx="12" fill="#2B1A4D" stroke="#4C2D87" stroke-width="1" />
+  <text x="440" y="145" fill="#FFFFFF" font-family="system-ui" font-size="13" font-weight="bold">Carbon Nanotubes</text>
+  <text x="440" y="168" fill="#D8B4FE" font-family="system-ui" font-size="11">Tensile Strength 100x Steel • Module 01</text>
+
+  <rect x="420" y="205" width="295" height="75" rx="12" fill="#2B1A4D" stroke="#4C2D87" stroke-width="1" />
+  <text x="440" y="235" fill="#FFFFFF" font-family="system-ui" font-size="13" font-weight="bold">Quantum Dots & Optics</text>
+  <text x="440" y="258" fill="#D8B4FE" font-family="system-ui" font-size="11">Semiconductor Nanocrystals • Module 02</text>
+
+  <rect x="420" y="295" width="295" height="75" rx="12" fill="#2B1A4D" stroke="#4C2D87" stroke-width="1" />
+  <text x="440" y="325" fill="#FFFFFF" font-family="system-ui" font-size="13" font-weight="bold">Nanomedicine Delivery</text>
+  <text x="440" y="348" fill="#D8B4FE" font-family="system-ui" font-size="11">Targeted Cellular Therapy • Module 03</text>
+</svg>
