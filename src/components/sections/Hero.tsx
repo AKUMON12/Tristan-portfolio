@@ -187,7 +187,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
                     <p className="text-[10px] text-slate-400 uppercase font-medium">Projects</p>
                   </div>
                   <div className="rounded-xl border border-slate-800 bg-slate-900/60 p-2 transition-colors hover:border-purple-500/30">
-                    <p className="font-mono text-base font-bold text-purple-400">2x</p>
+                    <p className="font-mono text-base font-bold text-purple-400">3x</p>
                     <p className="text-[10px] text-slate-400 uppercase font-medium">Cisco Certs</p>
                   </div>
                   <div className="rounded-xl border border-slate-800 bg-slate-900/60 p-2 transition-colors hover:border-emerald-500/30">

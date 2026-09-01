@@ -16,18 +16,18 @@
   --input-bg: rgba(7, 10, 16, 0.8);
 }
 
-/* Eye-Friendly Soft Light Mode Palette */
+/* Eye-Friendly Warm & Soft Light Mode Palette */
 html.light {
-  --bg-primary: #F4F6F9;
+  --bg-primary: #F8FAFC;
   --bg-secondary: #FFFFFF;
   --card-bg: #FFFFFF;
   --card-border: #E2E8F0;
   --text-primary: #0F172A;
   --text-secondary: #334155;
-  --text-muted: #64748B;
+  --text-muted: #475569;
   --accent-cyan: #0284C7;
-  --accent-purple: #7C3AED;
-  --glow-cyan: rgba(2, 132, 199, 0.15);
+  --accent-purple: #6D28D9;
+  --glow-cyan: rgba(2, 132, 199, 0.08);
   --input-bg: #FFFFFF;
 }
 
@@ -48,25 +48,29 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Light mode overrides for surfaces */
+/* =========================================================================
+   LIGHT MODE DESIGN SYSTEM OVERRIDES (Soft, Eye-Friendly, High Readability)
+   ========================================================================= */
+
 html.light body {
-  background-color: #F4F6F9;
+  background-color: #F8FAFC;
   color: #0F172A;
 }
 
+/* Background surfaces */
 html.light .bg-\[\#0A0D14\] {
-  background-color: #F4F6F9 !important;
+  background-color: #F8FAFC !important;
 }
 
 html.light .bg-\[\#0A0D14\]\/80,
 html.light .bg-\[\#0A0D14\]\/85,
 html.light .bg-\[\#0A0D14\]\/90,
 html.light .bg-\[\#0A0D14\]\/95 {
-  background-color: rgba(244, 246, 249, 0.94) !important;
+  background-color: rgba(248, 250, 252, 0.95) !important;
 }
 
 html.light .bg-\[\#070A10\] {
-  background-color: #EEF2F6 !important;
+  background-color: #F1F5F9 !important;
 }
 
 html.light .bg-\[\#0E131F\] {
@@ -78,9 +82,10 @@ html.light .bg-\[\#0E131F\]\/85,
 html.light .bg-\[\#0E131F\]\/90,
 html.light .bg-\[\#0E131F\]\/95 {
   background-color: #FFFFFF !important;
-  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 6px 24px -4px rgba(15, 23, 42, 0.06) !important;
 }
 
+/* Border overrides */
 html.light .border-slate-800,
 html.light .border-slate-800\/80,
 html.light .border-slate-800\/90,
@@ -88,6 +93,7 @@ html.light .border-slate-700 {
   border-color: #E2E8F0 !important;
 }
 
+/* Sub-card & container fills */
 html.light .bg-slate-900,
 html.light .bg-slate-900\/50,
 html.light .bg-slate-900\/60,
@@ -95,7 +101,7 @@ html.light .bg-slate-900\/70,
 html.light .bg-slate-900\/80,
 html.light .bg-slate-900\/90 {
   background-color: #F8FAFC !important;
-  border-color: #E2E8F0;
+  border-color: #E2E8F0 !important;
 }
 
 html.light .bg-slate-950,
@@ -103,9 +109,10 @@ html.light .bg-slate-950\/70,
 html.light .bg-slate-950\/80,
 html.light .bg-slate-950\/90 {
   background-color: #F1F5F9 !important;
+  border-color: #E2E8F0 !important;
 }
 
-/* Light mode text colors */
+/* Deep, High-Contrast Typography Hierarchy */
 html.light .text-white {
   color: #0F172A !important;
 }
@@ -123,24 +130,53 @@ html.light .text-slate-300 {
 }
 
 html.light .text-slate-400 {
-  color: #64748B !important;
+  color: #475569 !important;
 }
 
 html.light .text-slate-500 {
-  color: #94A3B8 !important;
+  color: #64748B !important;
 }
 
-/* Light mode badge & accent adjustments */
+/* Readable Accents in Light Mode */
+html.light .text-cyan-300,
+html.light .text-cyan-400 {
+  color: #0284C7 !important;
+}
+
+html.light .text-purple-300,
+html.light .text-purple-400 {
+  color: #6D28D9 !important;
+}
+
+html.light .text-emerald-400 {
+  color: #047857 !important;
+}
+
+html.light .text-amber-400 {
+  color: #B45309 !important;
+}
+
+html.light .text-rose-400 {
+  color: #BE123C !important;
+}
+
+html.light .text-sky-300,
+html.light .text-sky-400 {
+  color: #0369A1 !important;
+}
+
+/* Vibrant Gradient Headlines in Light Mode */
+html.light .bg-gradient-to-r.from-cyan-400.via-sky-300.to-purple-500 {
+  background-image: linear-gradient(to right, #0284C7, #2563EB, #7C3AED) !important;
+}
+
+/* Badges & Pill Tags */
 html.light .bg-cyan-950\/20,
 html.light .bg-cyan-950\/30,
 html.light .bg-cyan-950\/40 {
   background-color: #E0F2FE !important;
   border-color: #BAE6FD !important;
-}
-
-html.light .text-cyan-300,
-html.light .text-cyan-400 {
-  color: #0284C7 !important;
+  color: #0369A1 !important;
 }
 
 html.light .bg-purple-950\/20,
@@ -148,11 +184,7 @@ html.light .bg-purple-950\/30,
 html.light .bg-purple-950\/40 {
   background-color: #F3E8FF !important;
   border-color: #E9D5FF !important;
-}
-
-html.light .text-purple-300,
-html.light .text-purple-400 {
-  color: #7C3AED !important;
+  color: #6D28D9 !important;
 }
 
 html.light .bg-emerald-950\/20,
@@ -160,15 +192,48 @@ html.light .bg-emerald-950\/30,
 html.light .bg-emerald-950\/40 {
   background-color: #DCFCE7 !important;
   border-color: #BBF7D0 !important;
-}
-
-html.light .text-emerald-400 {
-  color: #059669 !important;
+  color: #047857 !important;
 }
 
 html.light .bg-red-950\/10,
 html.light .bg-red-950\/20 {
   background-color: #FFE4E6 !important;
+  border-color: #FECDD3 !important;
+}
+
+/* Inactive filter buttons in Light Mode */
+html.light .bg-slate-900\/60 {
+  background-color: #FFFFFF !important;
+  border-color: #CBD5E1 !important;
+  color: #475569 !important;
+}
+
+html.light .bg-slate-900\/60:hover {
+  background-color: #F1F5F9 !important;
+  color: #0F172A !important;
+}
+
+/* Secondary CTA Buttons in Light Mode */
+html.light .bg-cyan-950\/20.border-cyan-500\/40,
+html.light .bg-cyan-950\/30.border-cyan-500\/40 {
+  background-color: #F0F9FF !important;
+  border-color: #BAE6FD !important;
+  color: #0284C7 !important;
+}
+
+html.light .bg-cyan-950\/20.border-cyan-500\/40:hover,
+html.light .bg-cyan-950\/30.border-cyan-500\/40:hover {
+  background-color: #0284C7 !important;
+  color: #FFFFFF !important;
+}
+
+/* Eliminating Harsh Glowing Halos in Light Mode */
+html.light .shadow-\[0_0_50px_rgba\(0\,240\,255\,0\.2\)\] {
+  box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.08) !important;
+}
+
+html.light .blur-2xl.opacity-70 {
+  opacity: 0.15 !important;
 }
 
 /* Custom Scrollbar */
