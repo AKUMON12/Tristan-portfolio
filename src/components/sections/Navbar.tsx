@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Menu, X, FileText, Moon, Sun, Terminal } from 'lucide-react';
+import { useTheme } from '../providers/ThemeProvider';
 
 interface NavbarProps {
   onOpenResume: () => void;
@@ -10,7 +11,7 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,16 +20,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const toggleTheme = () => {
-    const nextTheme = theme === 'dark' ? 'light' : 'dark';
-    setTheme(nextTheme);
-    if (nextTheme === 'light') {
-      document.documentElement.classList.add('light-theme');
-    } else {
-      document.documentElement.classList.remove('light-theme');
-    }
-  };
 
   const navLinks = [
     { label: 'About', href: '#about' },
@@ -44,7 +35,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         scrolled
-          ? 'bg-[#0A0D14]/85 py-3 shadow-[0_4px_30px_rgba(0,0,0,0.5)] backdrop-blur-md border-b border-cyan-500/20'
+          ? 'bg-[#0A0D14]/85 py-3 shadow-[0_4px_30px_rgba(0,0,0,0.2)] backdrop-blur-md border-b border-cyan-500/20'
           : 'bg-transparent py-5'
       }`}
     >
@@ -52,21 +43,21 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
         {/* Brand / Logo */}
         <a
           href="#"
-          className="group flex items-center space-x-2 font-mono text-lg font-bold tracking-tight text-white transition-colors"
+          className="group flex items-center space-x-2 font-mono text-base sm:text-lg font-bold tracking-tight text-white transition-colors"
         >
           <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 shadow-[0_0_12px_rgba(0,240,255,0.4)] group-hover:scale-105 transition-transform">
             <Terminal className="h-4 w-4" />
           </span>
           <span>
             <span className="text-cyan-400">&lt;</span>
-            <span className="text-white group-hover:text-cyan-300 transition-colors">Akumon</span>
+            <span className="text-white group-hover:text-cyan-400 transition-colors">Akumon</span>
             <span className="text-purple-400">.dev</span>
             <span className="text-cyan-400"> /&gt;</span>
           </span>
         </a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden items-center space-x-7 md:flex">
+        <nav className="hidden items-center space-x-6 lg:space-x-8 md:flex">
           {navLinks.map((link) => (
             <a
               key={link.label}
@@ -82,11 +73,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
         <div className="hidden items-center space-x-3 md:flex">
           <button
             onClick={toggleTheme}
-            className="rounded-lg border border-slate-800 bg-slate-900/80 p-2 text-slate-300 transition-colors hover:border-cyan-500/40 hover:text-cyan-400"
+            className="flex items-center justify-center rounded-lg border border-slate-800 bg-slate-900/80 p-2.5 text-slate-300 transition-all hover:border-cyan-500/40 hover:text-cyan-400 hover:scale-105"
             title={`Switch to ${theme === 'dark' ? 'Light' : 'Dark'} mode`}
             aria-label="Toggle theme"
           >
-            {theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+            {theme === 'dark' ? (
+              <Sun className="h-4 w-4 text-amber-400" />
+            ) : (
+              <Moon className="h-4 w-4 text-purple-600" />
+            )}
           </button>
 
           <button
@@ -105,7 +100,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
             className="rounded-lg border border-slate-800 bg-slate-900/80 p-2 text-slate-300"
             aria-label="Toggle theme"
           >
-            {theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+            {theme === 'dark' ? (
+              <Sun className="h-4 w-4 text-amber-400" />
+            ) : (
+              <Moon className="h-4 w-4 text-purple-600" />
+            )}
           </button>
 
           <button

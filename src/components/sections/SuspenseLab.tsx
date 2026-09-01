@@ -1,16 +1,15 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Terminal, Sparkles, Flame, Eye, ArrowRight, Play } from 'lucide-react';
+import { Terminal, Sparkles, Flame } from 'lucide-react';
 
 export const SuspenseLab = () => {
-  const [activeTab, setActiveTab] = useState<'preview' | 'terminal'>('terminal');
+  const [activeTab, setActiveTab] = useState<'terminal' | 'preview'>('terminal');
   const [terminalInput, setTerminalInput] = useState('');
   const [terminalLogs, setTerminalLogs] = useState<string[]>([
-    'Initializing Akumon.dev Core System...',
-    'System: Linux x86_64 / Node.js runtime loaded.',
-    'Status: Accepting Freelance projects & Full-stack roles.',
-    'Type "help" or "status" to test interactive CLI commands.',
+    'Akumon.dev Terminal [Version 2.4]',
+    'Status: Available for Full-Stack Roles & Freelance Projects.',
+    'Type "help" to list available commands.',
   ]);
 
   const handleCommand = (e: React.FormEvent) => {
@@ -22,22 +21,22 @@ export const SuspenseLab = () => {
 
     switch (cmd) {
       case 'help':
-        newLogs.push('Available commands: status, projects, skills, contact, clear, labs, echo');
+        newLogs.push('Available commands: status, projects, skills, contact, clear, labs');
         break;
       case 'status':
-        newLogs.push('STATUS: 100% ONLINE. Location: Cebu City, PH. Open to Opportunities.');
+        newLogs.push('STATUS: Online • Location: Cebu City, PH • Open to Opportunities.');
         break;
       case 'projects':
-        newLogs.push('PROJECTS: 1. UC-Coop Loan 2. ChronoNav 3. CAMPass 4. SkyCast-OS 5. ElectionSim');
+        newLogs.push('PROJECTS: 1. UC-Coop Loan Monitoring 2. ChronoNav 3. CAMPass 4. SkyCast-OS 5. ElectionSim');
         break;
       case 'skills':
-        newLogs.push('STACK: Node.js, Next.js 14, TypeScript, PostgreSQL, Tailwind, RAG, IoT');
+        newLogs.push('STACK: Node.js, Next.js 14, TypeScript, PostgreSQL, Supabase, Tailwind, IoT');
         break;
       case 'contact':
         newLogs.push('CONTACT: tjelvinia@gmail.com | Phone: 09928571488 | LinkedIn: tristan-jesus-elvinia');
         break;
       case 'labs':
-        newLogs.push('ACTIVE R&D: [1] Project Aether (Local RAG Assistant) [2] CAMPass v2 (LoRa Edge Mesh)');
+        newLogs.push('ACTIVE R&D: [1] Project Aether (Client RAG Agent) [2] CAMPass v2.0 (Edge Mesh)');
         break;
       case 'clear':
         setTerminalLogs([]);
@@ -53,7 +52,6 @@ export const SuspenseLab = () => {
 
   return (
     <section id="labs" className="relative py-24 scroll-mt-20 overflow-hidden">
-      {/* Background glow orb */}
       <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-96 w-96 rounded-full bg-gradient-to-tr from-cyan-500/10 to-purple-600/10 blur-3xl" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
@@ -61,13 +59,13 @@ export const SuspenseLab = () => {
         <div className="mb-16 text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-950/40 px-4 py-1 text-xs font-semibold uppercase tracking-wider text-cyan-300 shadow-[0_0_15px_rgba(0,240,255,0.2)]">
             <Sparkles className="h-3.5 w-3.5" />
-            <span>Suspense & Innovation Labs</span>
+            <span>Innovation & Prototyping</span>
           </div>
           <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
-            Under The Hood: Akumon Labs
+            Akumon Labs
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-base text-slate-400">
-            A suspense sneak peek into ongoing research, upcoming hardware prototypes, and an interactive command-line terminal.
+            Interactive command-line interface and active research prototypes.
           </p>
         </div>
 
@@ -93,30 +91,28 @@ export const SuspenseLab = () => {
             }`}
           >
             <Flame className="h-4 w-4" />
-            <span>Upcoming R&D Pipeline</span>
+            <span>R&D Pipeline</span>
           </button>
         </div>
 
         {/* Tab 1: Terminal */}
         {activeTab === 'terminal' && (
           <div className="mx-auto max-w-3xl overflow-hidden rounded-2xl border border-cyan-500/30 bg-[#070A10] shadow-[0_0_40px_rgba(0,0,0,0.8)] backdrop-blur-xl">
-            {/* Terminal title bar */}
             <div className="flex items-center justify-between border-b border-slate-800 bg-slate-950/80 px-4 py-3">
               <div className="flex items-center space-x-2">
-                <span className="h-3 w-3 rounded-full bg-rose-500" />
-                <span className="h-3 w-3 rounded-full bg-amber-500" />
-                <span className="h-3 w-3 rounded-full bg-emerald-500" />
+                <span className="h-3 w-3 rounded-full bg-[#FF5F56]" />
+                <span className="h-3 w-3 rounded-full bg-[#FFBD2E]" />
+                <span className="h-3 w-3 rounded-full bg-[#27C93F]" />
               </div>
               <span className="font-mono text-xs font-semibold text-slate-400">
-                tristan@akumon-dev: ~ (bash)
+                akumon@cli: ~ (bash)
               </span>
               <span className="rounded bg-cyan-950 px-2 py-0.5 font-mono text-[10px] text-cyan-400">
                 v2.4-live
               </span>
             </div>
 
-            {/* Terminal log output */}
-            <div className="h-64 overflow-y-auto p-4 font-mono text-xs text-slate-300 space-y-1.5 scrollbar-thin">
+            <div className="h-60 overflow-y-auto p-4 font-mono text-xs text-slate-300 space-y-1.5 scrollbar-thin">
               {terminalLogs.map((log, i) => (
                 <div
                   key={i}
@@ -135,7 +131,6 @@ export const SuspenseLab = () => {
               ))}
             </div>
 
-            {/* Interactive Prompt Input */}
             <form onSubmit={handleCommand} className="flex border-t border-slate-800 bg-slate-950/90 px-4 py-3">
               <span className="font-mono text-xs font-bold text-cyan-400 mr-2 flex items-center">
                 $ akumon &gt;
@@ -157,19 +152,19 @@ export const SuspenseLab = () => {
           </div>
         )}
 
-        {/* Tab 2: Upcoming R&D Cards */}
+        {/* Tab 2: R&D Pipeline */}
         {activeTab === 'preview' && (
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             <div className="rounded-2xl border border-cyan-500/20 bg-[#0E131F]/80 p-6 backdrop-blur-xl">
               <div className="mb-3 flex items-center justify-between">
                 <span className="rounded-full bg-cyan-950/60 px-3 py-1 text-[10px] font-bold uppercase text-cyan-400 border border-cyan-800/40">
-                  In Incubation
+                  In Development
                 </span>
                 <span className="text-xs text-slate-500 font-mono">Q3 2026</span>
               </div>
               <h4 className="text-lg font-bold text-white">Project Aether AI</h4>
               <p className="mt-2 text-xs leading-relaxed text-slate-400">
-                Personalized offline-capable Retrieval-Augmented Generation agent running directly on client browsers via WebGPU and Gemini 1.5/Flash APIs.
+                Offline-capable Retrieval-Augmented Generation agent running directly on client browsers via WebGPU and Gemini APIs.
               </p>
             </div>
 
@@ -182,7 +177,7 @@ export const SuspenseLab = () => {
               </div>
               <h4 className="text-lg font-bold text-white">CAMPass v2.0 Edge Mesh</h4>
               <p className="mt-2 text-xs leading-relaxed text-slate-400">
-                Next-generation distributed biometric access node utilizing LoRa wireless mesh networking for off-grid perimeter defense and emergency broadcast.
+                Distributed biometric access node utilizing LoRa wireless mesh networking for off-grid perimeter monitoring.
               </p>
             </div>
 
@@ -195,7 +190,7 @@ export const SuspenseLab = () => {
               </div>
               <h4 className="text-lg font-bold text-white">OmniFlow Studio</h4>
               <p className="mt-2 text-xs leading-relaxed text-slate-400">
-                Visual node-based API composition canvas built with Next.js and WebSockets to visually orchestrate microservices and AI pipelines.
+                Visual node-based API composition canvas built with Next.js to orchestrate microservices and AI workflows.
               </p>
             </div>
           </div>

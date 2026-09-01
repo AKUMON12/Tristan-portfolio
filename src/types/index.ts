@@ -15,6 +15,10 @@ export interface Project {
   techStack: string[];
   liveUrl: string;
   githubUrl: string;
+  deploymentDomain?: string;
+  deploymentPlatform?: 'Vercel' | 'Railway' | 'GitHub Pages' | 'Self-Hosted' | 'Firebase';
+  branch?: string;
+  deploymentStatus?: 'Ready' | 'Production' | 'Live';
   caseStudy: ProjectCaseStudy;
 }
 

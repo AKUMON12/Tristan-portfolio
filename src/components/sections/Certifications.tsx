@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { certifications } from '../../data/certsData';
-import { Award, ShieldCheck, ExternalLink, CheckCircle2, Network } from 'lucide-react';
+import { Award, ShieldCheck, CheckCircle2 } from 'lucide-react';
 
 export const Certifications = () => {
   return (
@@ -15,10 +15,10 @@ export const Certifications = () => {
             <span>Credentials & Accreditations</span>
           </div>
           <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
-            Certifications & Training Vault
+            Certifications
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-base text-slate-400">
-            Formal industry validations from Cisco Networking Academy covering enterprise network topologies, routing protocols, and global cybersecurity defense.
+            Official industry certifications from Cisco Networking Academy covering enterprise network topologies, routing protocols, and cybersecurity.
           </p>
         </div>
 
@@ -61,7 +61,7 @@ export const Certifications = () => {
                 {cert.description}
               </p>
 
-              {/* Verification status pill */}
+              {/* Verification status */}
               <div className="mt-6 flex items-center justify-between border-t border-slate-800/80 pt-4">
                 <span className="flex items-center gap-1.5 text-xs font-semibold text-emerald-400">
                   <CheckCircle2 className="h-3.5 w-3.5" />

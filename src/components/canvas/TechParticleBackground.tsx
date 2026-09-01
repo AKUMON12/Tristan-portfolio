@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
+import { useTheme } from '../providers/ThemeProvider';
 
 interface Particle {
   x: number;
@@ -16,6 +17,7 @@ interface Particle {
 
 export const TechParticleBackground = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const { theme } = useTheme();
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -25,7 +27,6 @@ export const TechParticleBackground = () => {
 
     let animationFrameId: number;
     const symbols = ['< >', '{ }', ';', '0101', '=>', '&&', '||', '!=', '/>', 'git', 'npm', 'const'];
-    const colors = ['#00F0FF', '#8B5CF6', '#38BDF8'];
 
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
@@ -56,10 +57,15 @@ export const TechParticleBackground = () => {
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('mouseleave', handleMouseLeave);
 
+    const isLight = document.documentElement.classList.contains('light');
+    const colors = isLight
+      ? ['#0284C7', '#7C3AED', '#2563EB', '#0D9488']
+      : ['#00F0FF', '#8B5CF6', '#38BDF8'];
+
     const particleCount = Math.min(45, Math.floor((width * height) / 28000));
     const particles: Particle[] = Array.from({ length: particleCount }, () => {
       const color = colors[Math.floor(Math.random() * colors.length)];
-      const baseOpacity = 0.15 + Math.random() * 0.25;
+      const baseOpacity = isLight ? (0.12 + Math.random() * 0.2) : (0.15 + Math.random() * 0.25);
       return {
         x: Math.random() * width,
         y: Math.random() * height,
@@ -75,6 +81,8 @@ export const TechParticleBackground = () => {
 
     const render = () => {
       ctx.clearRect(0, 0, width, height);
+
+      const currentlyLight = document.documentElement.classList.contains('light');
 
       particles.forEach((p) => {
         p.y += p.vy;
@@ -98,18 +106,18 @@ export const TechParticleBackground = () => {
           const force = (mouse.radius - dist) / mouse.radius;
           p.x -= (dx / dist) * force * 3;
           p.y -= (dy / dist) * force * 3;
-          activeOpacity = Math.min(0.9, p.baseOpacity + 0.5);
+          activeOpacity = Math.min(0.85, p.baseOpacity + 0.45);
         }
 
         ctx.font = `600 ${p.size}px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace`;
-        ctx.fillStyle = p.color;
+        ctx.fillStyle = currentlyLight ? (p.color === '#00F0FF' ? '#0284C7' : p.color) : p.color;
         ctx.globalAlpha = activeOpacity;
         ctx.fillText(p.symbol, p.x, p.y);
       });
 
-      // Subtle cyber grid dots
-      ctx.globalAlpha = 0.05;
-      ctx.fillStyle = '#00F0FF';
+      // Subtle grid dots
+      ctx.globalAlpha = currentlyLight ? 0.04 : 0.05;
+      ctx.fillStyle = currentlyLight ? '#0284C7' : '#00F0FF';
       const step = 60;
       for (let x = 0; x < width; x += step) {
         for (let y = 0; y < height; y += step) {
@@ -131,7 +139,7 @@ export const TechParticleBackground = () => {
       window.removeEventListener('mouseleave', handleMouseLeave);
       cancelAnimationFrame(animationFrameId);
     };
-  }, []);
+  }, [theme]);
 
   return (
     <canvas

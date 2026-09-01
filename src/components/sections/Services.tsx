@@ -30,13 +30,13 @@ export const Services = () => {
         <div className="mb-16 text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-purple-500/20 bg-purple-950/30 px-4 py-1 text-xs font-semibold uppercase tracking-wider text-purple-300">
             <Layers className="h-3.5 w-3.5" />
-            <span>Capabilities & Offerings</span>
+            <span>Core Capabilities</span>
           </div>
           <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
-            Services Offered
+            Services & Expertise
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-base text-slate-400">
-            Transforming product visions into robust, beautifully crafted digital solutions with modern web, AI, and IoT engineering.
+            Specialized engineering services spanning modern full-stack web applications, user interfaces, AI integrations, and embedded systems.
           </p>
         </div>
 
@@ -49,7 +49,6 @@ export const Services = () => {
                 index === 0 ? 'md:col-span-2 lg:col-span-2' : ''
               }`}
             >
-              {/* Subtle hover gradient */}
               <div className="pointer-events-none absolute -right-20 -top-20 h-44 w-44 rounded-full bg-cyan-500/5 blur-3xl transition-all group-hover:bg-cyan-500/15" />
 
               <div className="mb-4 flex items-center justify-between">
@@ -72,7 +71,7 @@ export const Services = () => {
               {/* Deliverables checklist */}
               <div className="mt-6 border-t border-slate-800/80 pt-5">
                 <p className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
-                  Key Deliverables
+                  Deliverables
                 </p>
                 <ul className="mt-2.5 space-y-2">
                   {service.deliverables.map((item) => (

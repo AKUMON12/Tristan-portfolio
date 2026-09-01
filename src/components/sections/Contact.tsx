@@ -10,7 +10,6 @@ import {
   Send,
   CheckCircle2,
   Copy,
-  Clock,
 } from 'lucide-react';
 
 export const Contact = () => {
@@ -33,7 +32,6 @@ export const Contact = () => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
 
-    // Direct mailto trigger as fallback
     const mailtoUrl = `mailto:tjelvinia@gmail.com?subject=${encodeURIComponent(
       formData.subject || 'Portfolio Inquiry from ' + formData.name
     )}&body=${encodeURIComponent(
@@ -51,23 +49,23 @@ export const Contact = () => {
         <div className="mb-16 text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/20 bg-cyan-950/30 px-4 py-1 text-xs font-semibold uppercase tracking-wider text-cyan-300">
             <Mail className="h-3.5 w-3.5" />
-            <span>Let's Build Together</span>
+            <span>Get in Touch</span>
           </div>
           <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
-            Get In Touch
+            Contact Me
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-base text-slate-400">
-            Have a project in mind, a freelance opportunity, or an engineering role? My inbox is always open.
+            Have a project in mind, a freelance inquiry, or an engineering role? Let's connect.
           </p>
         </div>
 
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
           {/* Left Column: Direct Info Cards (Col 5) */}
           <div className="flex flex-col justify-between space-y-6 lg:col-span-5">
-            <div className="space-y-4">
-              <h3 className="text-xl font-bold text-white">Direct Communication Channels</h3>
+            <div className="space-y-3">
+              <h3 className="text-xl font-bold text-white">Direct Communication</h3>
               <p className="text-sm text-slate-400">
-                Reach out via email, phone, or professional networks. I typically respond within 24 hours.
+                Reach out via email, phone, or professional networks. I respond promptly.
               </p>
             </div>
 
@@ -92,7 +90,7 @@ export const Contact = () => {
                 <button
                   onClick={() => handleCopy('tjelvinia@gmail.com', 'email')}
                   className="rounded-lg border border-slate-800 bg-slate-900 p-2 text-slate-400 hover:text-cyan-400"
-                  title="Copy email to clipboard"
+                  title="Copy email"
                   aria-label="Copy email address"
                 >
                   {copied === 'email' ? (
@@ -110,7 +108,7 @@ export const Contact = () => {
                     <Phone className="h-5 w-5" />
                   </div>
                   <div>
-                    <p className="text-xs text-slate-400">Phone / WhatsApp</p>
+                    <p className="text-xs text-slate-400">Phone</p>
                     <a
                       href="tel:09928571488"
                       className="font-medium text-white hover:text-purple-300 transition-colors text-sm"
@@ -122,7 +120,7 @@ export const Contact = () => {
                 <button
                   onClick={() => handleCopy('09928571488', 'phone')}
                   className="rounded-lg border border-slate-800 bg-slate-900 p-2 text-slate-400 hover:text-purple-400"
-                  title="Copy phone to clipboard"
+                  title="Copy phone"
                   aria-label="Copy phone number"
                 >
                   {copied === 'phone' ? (
@@ -139,7 +137,7 @@ export const Contact = () => {
                   <MapPin className="h-5 w-5" />
                 </div>
                 <div>
-                  <p className="text-xs text-slate-400">Location & Timezone</p>
+                  <p className="text-xs text-slate-400">Location</p>
                   <p className="text-sm font-medium text-white">Cebu City, Philippines (UTC+8)</p>
                 </div>
               </div>
@@ -168,19 +166,19 @@ export const Contact = () => {
             </div>
           </div>
 
-          {/* Right Column: Quick Contact Form (Col 7) */}
+          {/* Right Column: Contact Form (Col 7) */}
           <div className="rounded-3xl border border-cyan-500/30 bg-[#0E131F]/90 p-8 backdrop-blur-xl lg:col-span-7 shadow-[0_0_50px_rgba(0,0,0,0.5)]">
-            <h3 className="text-xl font-bold text-white">Send A Quick Message</h3>
+            <h3 className="text-xl font-bold text-white">Send A Message</h3>
             <p className="mt-1 text-xs text-slate-400">
-              Fill out the details below to dispatch an email inquiry directly to my inbox.
+              Fill out the form below to send an email inquiry directly to my inbox.
             </p>
 
             {formSubmitted ? (
               <div className="mt-8 rounded-2xl border border-emerald-500/30 bg-emerald-950/20 p-6 text-center">
                 <CheckCircle2 className="mx-auto h-12 w-12 text-emerald-400" />
-                <h4 className="mt-3 text-lg font-bold text-white">Inquiry Prepared!</h4>
+                <h4 className="mt-3 text-lg font-bold text-white">Message Prepared</h4>
                 <p className="mt-1 text-xs text-slate-300">
-                  Your mail client has been opened with your pre-filled inquiry. You can also email me directly at{' '}
+                  Your mail client has been opened with your pre-filled inquiry. You can also reach me directly at{' '}
                   <span className="font-semibold text-cyan-400">tjelvinia@gmail.com</span>.
                 </p>
                 <button
@@ -223,7 +221,7 @@ export const Contact = () => {
                     type="text"
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    placeholder="Project Inquiry / Job Opportunity"
+                    placeholder="Project Inquiry / Role Opportunity"
                     className="mt-1.5 w-full rounded-xl border border-slate-800 bg-slate-950/70 px-4 py-2.5 text-sm text-white placeholder-slate-600 focus:border-cyan-400 focus:outline-none focus:ring-1 focus:ring-cyan-400"
                   />
                 </div>
@@ -235,7 +233,7 @@ export const Contact = () => {
                     rows={4}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Tell me about your project, timeline, or engineering opportunity..."
+                    placeholder="Tell me about your project or opportunity..."
                     className="mt-1.5 w-full rounded-xl border border-slate-800 bg-slate-950/70 px-4 py-2.5 text-sm text-white placeholder-slate-600 focus:border-cyan-400 focus:outline-none focus:ring-1 focus:ring-cyan-400 resize-none"
                   />
                 </div>

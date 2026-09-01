@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { skillCategories } from '../../data/skillsData';
-import { Cpu, CheckCircle2, SlidersHorizontal, Sparkles } from 'lucide-react';
+import { Cpu, Sparkles } from 'lucide-react';
 
 export const Skills = () => {
   const [activeCategoryIndex, setActiveCategoryIndex] = useState<number>(0);
@@ -14,13 +14,13 @@ export const Skills = () => {
         <div className="mb-16 text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/20 bg-cyan-950/30 px-4 py-1 text-xs font-semibold uppercase tracking-wider text-cyan-300">
             <Cpu className="h-3.5 w-3.5" />
-            <span>Technical Expertise</span>
+            <span>Technical Proficiencies</span>
           </div>
           <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
-            Skills Matrix & Capabilities
+            Skills & Technologies
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-base text-slate-400">
-            Engineered for fast scanning with realistic proficiencies, specialized highlights, and production-tested tooling.
+            Production-tested technologies, frameworks, and engineering tools across frontend, backend, AI, and DevOps.
           </p>
         </div>
 

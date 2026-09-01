@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { ArrowUp, Github, Linkedin, Mail, Phone, Terminal } from 'lucide-react';
+import { ArrowUp, Github, Linkedin, Mail, Terminal } from 'lucide-react';
 
 export const Footer = () => {
   const scrollToTop = () => {
@@ -29,7 +29,7 @@ export const Footer = () => {
               </span>
             </a>
             <p className="mt-2 text-xs text-slate-500 text-center md:text-left">
-              Designed & Built with precision by <span className="text-slate-300 font-medium">Tristan Jesus V. Elvinia</span>.
+              Tristan Jesus V. Elvinia • Full-Stack Developer & UI/UX Designer
             </p>
           </div>
 
@@ -82,7 +82,7 @@ export const Footer = () => {
         </div>
 
         <div className="mt-8 border-t border-slate-900 pt-6 text-center text-[11px] text-slate-500">
-          © {new Date().getFullYear()} Tristan Jesus V. Elvinia (Akumon). Built with Next.js 14, TypeScript & Tailwind CSS.
+          © {new Date().getFullYear()} Tristan Jesus V. Elvinia (Akumon). All rights reserved.
         </div>
       </div>
     </footer>
