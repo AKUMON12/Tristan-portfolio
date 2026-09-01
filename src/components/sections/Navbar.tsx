@@ -46,8 +46,17 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
           href="#"
           className="group flex items-center space-x-2 font-mono text-base sm:text-lg font-bold tracking-tight text-white transition-colors"
         >
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 shadow-[0_0_12px_rgba(0,240,255,0.4)] group-hover:scale-105 transition-transform">
-            <Terminal className="h-4 w-4" />
+          <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#0E131F] border border-cyan-500/40 text-cyan-400 shadow-[0_0_15px_rgba(0,240,255,0.35)] group-hover:scale-110 group-hover:border-cyan-400 transition-all">
+            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none">
+              <circle cx="12" cy="12" r="7.5" stroke="url(#navIconGrad)" strokeWidth="2" />
+              <circle cx="12" cy="12" r="2.5" fill="#00F0FF" />
+              <defs>
+                <linearGradient id="navIconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#00F0FF" />
+                  <stop offset="100%" stopColor="#8B5CF6" />
+                </linearGradient>
+              </defs>
+            </svg>
           </span>
           <span>
             <span className="text-cyan-400">&lt;</span>

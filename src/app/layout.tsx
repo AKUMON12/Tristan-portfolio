@@ -4,13 +4,19 @@ import { ThemeProvider } from '../components/providers/ThemeProvider';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://elvinia-portfolio.vercel.app'),
-  title: 'Tristan Jesus V. Elvinia (Akumon) | Full-Stack Developer',
+  title: 'Tristan Jesus V. Elvinia (Akumon) | Frontend Developer & Web Designer',
   description:
-    'Portfolio of Tristan Jesus V. Elvinia (Akumon). Full-Stack Developer and UI/UX Designer specializing in Node.js, Next.js, and modern web architectures.',
+    'Portfolio of Tristan Jesus V. Elvinia (Akumon). Frontend Developer and Web Designer specializing in React, Next.js, Node.js, and modern responsive UI architectures.',
+  icons: {
+    icon: '/icon.svg',
+    shortcut: '/icon.svg',
+    apple: '/icon.svg',
+  },
   keywords: [
     'Tristan Jesus Elvinia',
     'Akumon',
-    'Full-Stack Developer',
+    'Frontend Developer',
+    'Web Designer',
     'Node.js',
     'Next.js',
     'React',
