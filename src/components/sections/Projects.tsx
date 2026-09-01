@@ -11,9 +11,7 @@ import {
   BookOpen,
   FolderGit2,
   Lock,
-  GitBranch,
   ArrowUpRight,
-  Globe,
 } from 'lucide-react';
 
 interface ProjectsProps {
@@ -45,17 +43,17 @@ export const Projects: React.FC<ProjectsProps> = ({ onSelectProject }) => {
         <div className="mb-12 text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/20 bg-cyan-950/30 px-4 py-1 text-xs font-semibold uppercase tracking-wider text-cyan-300">
             <FolderGit2 className="h-3.5 w-3.5" />
-            <span>Deployed Systems & Applications</span>
+            <span>Deployed Systems</span>
           </div>
           <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
             Selected Projects
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-base text-slate-400">
-            Live production web applications, academic capstones, and engineering case studies with verified deployments.
+          <p className="mx-auto mt-2 max-w-xl text-sm text-slate-400">
+            Production web applications and academic capstones with verified live deployments.
           </p>
 
           {/* Category Filter Pills */}
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
+          <div className="mt-7 flex flex-wrap items-center justify-center gap-2">
             {categories.map((cat) => (
               <button
                 key={cat}
@@ -74,13 +72,13 @@ export const Projects: React.FC<ProjectsProps> = ({ onSelectProject }) => {
 
         {/* Projects Grid with Skeletal loading state */}
         {isLoading ? (
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {[1, 2, 3, 4, 5, 6].map((n) => (
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {[1, 2, 3, 4, 5].map((n) => (
               <SkeletonCard key={n} type="project" />
             ))}
           </div>
         ) : (
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {filteredProjects.map((project) => (
               <div
                 key={project.id}
@@ -88,22 +86,19 @@ export const Projects: React.FC<ProjectsProps> = ({ onSelectProject }) => {
               >
                 {/* Vercel-Style Browser Window Header */}
                 <div className="flex items-center justify-between border-b border-slate-800/90 bg-slate-950/90 px-3.5 py-2.5">
-                  {/* Window Control Dots */}
                   <div className="flex items-center space-x-1.5">
                     <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F56]" />
                     <span className="h-2.5 w-2.5 rounded-full bg-[#FFBD2E]" />
                     <span className="h-2.5 w-2.5 rounded-full bg-[#27C93F]" />
                   </div>
 
-                  {/* Browser Address Bar */}
-                  <div className="flex max-w-[200px] sm:max-w-[220px] items-center space-x-1.5 truncate rounded-md border border-slate-800 bg-slate-900/80 px-2.5 py-0.5 font-mono text-[11px] text-slate-300">
+                  <div className="flex max-w-[190px] sm:max-w-[210px] items-center space-x-1.5 truncate rounded-md border border-slate-800 bg-slate-900/80 px-2.5 py-0.5 font-mono text-[11px] text-slate-300">
                     <Lock className="h-2.5 w-2.5 text-emerald-400 shrink-0" />
                     <span className="truncate">
                       {project.deploymentDomain || 'deployment.live'}
                     </span>
                   </div>
 
-                  {/* Status Indicator */}
                   <div className="flex items-center space-x-1.5">
                     <span className="relative flex h-2 w-2">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -115,7 +110,7 @@ export const Projects: React.FC<ProjectsProps> = ({ onSelectProject }) => {
                   </div>
                 </div>
 
-                {/* System Preview Viewport (Vercel deployment pane style) */}
+                {/* System Preview Viewport */}
                 <div className="relative aspect-video w-full overflow-hidden bg-slate-950">
                   <Image
                     src={project.image}
@@ -127,10 +122,9 @@ export const Projects: React.FC<ProjectsProps> = ({ onSelectProject }) => {
                     }}
                   />
                   
-                  {/* Subtle glass reflection overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0E131F] via-transparent to-transparent opacity-80" />
 
-                  {/* Platform & Category Badges */}
+                  {/* Category & Platform Tags */}
                   <div className="absolute top-3 left-3 flex items-center gap-1.5">
                     <span className="rounded-full border border-white/10 bg-[#0A0D14]/80 px-2.5 py-0.5 text-[10px] font-bold text-cyan-300 backdrop-blur-md">
                       {project.category}
@@ -158,24 +152,22 @@ export const Projects: React.FC<ProjectsProps> = ({ onSelectProject }) => {
                   )}
                 </div>
 
-                {/* Card Information Body */}
-                <div className="flex flex-1 flex-col p-6">
-                  <div className="flex items-start justify-between gap-2">
-                    <h3 className="text-lg font-bold tracking-tight text-white transition-colors group-hover:text-cyan-300">
-                      {project.title}
-                    </h3>
-                  </div>
+                {/* Card Info */}
+                <div className="flex flex-1 flex-col p-5 sm:p-6">
+                  <h3 className="text-base sm:text-lg font-bold tracking-tight text-white transition-colors group-hover:text-cyan-300">
+                    {project.title}
+                  </h3>
 
                   <p className="mt-1 font-mono text-xs text-purple-400 font-medium">
                     {project.tagline}
                   </p>
 
-                  <p className="mt-2.5 line-clamp-2 text-xs leading-relaxed text-slate-400">
+                  <p className="mt-2 line-clamp-2 text-xs leading-relaxed text-slate-400">
                     {project.description}
                   </p>
 
                   {/* Tech stack badges */}
-                  <div className="mt-4 flex flex-wrap gap-1.5">
+                  <div className="mt-3.5 flex flex-wrap gap-1.5">
                     {project.techStack.map((tech) => (
                       <span
                         key={tech}
@@ -186,17 +178,15 @@ export const Projects: React.FC<ProjectsProps> = ({ onSelectProject }) => {
                     ))}
                   </div>
 
-                  {/* Vercel-Style Deployment Metadata & Action Footer */}
-                  <div className="mt-6 flex items-center justify-between border-t border-slate-800/80 pt-4">
-                    <div className="flex items-center gap-2">
-                      <button
-                        onClick={() => onSelectProject(project)}
-                        className="inline-flex items-center gap-1.5 rounded-lg border border-cyan-500/30 bg-cyan-950/20 px-3 py-1.5 text-xs font-bold text-cyan-300 transition-all hover:bg-cyan-500 hover:text-black"
-                      >
-                        <BookOpen className="h-3.5 w-3.5" />
-                        <span>Case Study</span>
-                      </button>
-                    </div>
+                  {/* Card Actions */}
+                  <div className="mt-5 flex items-center justify-between border-t border-slate-800/80 pt-3.5">
+                    <button
+                      onClick={() => onSelectProject(project)}
+                      className="inline-flex items-center gap-1.5 rounded-lg border border-cyan-500/30 bg-cyan-950/20 px-3 py-1.5 text-xs font-bold text-cyan-300 transition-all hover:bg-cyan-500 hover:text-black"
+                    >
+                      <BookOpen className="h-3.5 w-3.5" />
+                      <span>Case Study</span>
+                    </button>
 
                     <div className="flex items-center space-x-2">
                       {project.liveUrl && (

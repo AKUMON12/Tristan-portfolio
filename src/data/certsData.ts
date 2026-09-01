@@ -7,7 +7,7 @@ export const certifications: CertificationItem[] = [
     date: 'January 2025',
     code: 'CISCO-CCNA7-SRWE-2025',
     badge: 'Enterprise Networking',
-    description: 'Covers switching architectures, VLAN configuration, inter-VLAN routing, STP, EtherChannel, DHCPv4/v6, SLAAC, and wireless LAN controller operations.',
+    description: 'Switching architectures, VLANs, inter-VLAN routing, STP, EtherChannel, and wireless LAN controllers.',
   },
   {
     title: 'Introduction to Cybersecurity',
@@ -15,6 +15,6 @@ export const certifications: CertificationItem[] = [
     date: 'March 2025',
     code: 'CISCO-SEC-INTRO-2025',
     badge: 'Security Foundations',
-    description: 'Foundations of global cybersecurity, threat landscape analysis, defense-in-depth principles, data confidentiality, integrity, and ethical defense standards.',
+    description: 'Threat landscape defense, defense-in-depth principles, data confidentiality, and integrity standards.',
   },
 ];
