@@ -25,7 +25,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
           {/* Left Column: Minimalist Value Proposition (Col 7) */}
           <div className="flex flex-col space-y-6 lg:col-span-7">
             {/* Status Beacon */}
-            <div className="inline-flex items-center space-x-2 rounded-full border border-cyan-500/30 bg-cyan-950/40 px-3.5 py-1 backdrop-blur-md w-fit">
+            {/* <div className="inline-flex items-center space-x-2 rounded-full border border-cyan-500/30 bg-cyan-950/40 px-3.5 py-1 backdrop-blur-md w-fit">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
@@ -33,28 +33,28 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
               <span className="text-xs font-semibold text-cyan-300">
                 Available for Full-Stack Roles
               </span>
-            </div>
+            </div> */}
 
             {/* Core Headline */}
             <div className="space-y-2">
               <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
                 <span>Tristan Jesus V. Elvinia</span>
                 <span className="mt-1 block bg-gradient-to-r from-cyan-400 via-sky-300 to-purple-500 bg-clip-text text-transparent">
-                  Full-Stack Developer
+                  Frontend Developer & Web Designer
                 </span>
               </h1>
               <p className="font-mono text-sm text-purple-400">
-                &lt;Akumon.dev /&gt; • Modern Web Architectures & Responsive UI
+                &lt;Akumon.dev /&gt;
               </p>
             </div>
 
-            {/* Minimalist 1-Sentence Summary */}
+            {/* Catchy & Authentic Overview */}
             <p className="max-w-xl text-base leading-relaxed text-slate-300 sm:text-lg">
-              IT graduate from <span className="text-white font-semibold">University of Cebu</span> engineering scalable web applications with <span className="text-cyan-300 font-medium">Node.js</span>, <span className="text-cyan-300 font-medium">Next.js</span>, and <span className="text-purple-300 font-medium">PostgreSQL</span>.
+              An IT graduate dedicated to bridging <span className="text-cyan-300 font-medium">refined design aesthetics</span> with <span className="text-purple-300 font-medium">modern web development</span>. With a strong focus on the <span className="text-white font-semibold">Node.js</span> ecosystem and a growth-driven mindset, I turn ideas into clean, engaging, and scalable digital solutions.
             </p>
 
             {/* Core Tech Badges */}
-            <div className="flex flex-wrap items-center gap-2">
+            {/* <div className="flex flex-wrap items-center gap-2">
               {['Node.js', 'Next.js 14', 'TypeScript', 'PostgreSQL', 'Tailwind CSS', 'Supabase'].map((tech) => (
                 <span
                   key={tech}
@@ -63,7 +63,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
                   {tech}
                 </span>
               ))}
-            </div>
+            </div> */}
 
             {/* Action Group */}
             <div className="flex flex-wrap items-center gap-3.5 pt-2">
@@ -162,7 +162,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
                     priority
                     className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
                   />
-                  
+
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0E131F]/90 via-transparent to-transparent opacity-75" />
 
                   {/* Floating Hologram Chip 1 */}

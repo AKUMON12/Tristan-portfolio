@@ -2,19 +2,20 @@
 
 import React, { useState } from 'react';
 import {
-  TrendingUp,
-  MapPin,
   Compass,
+  ArrowRight,
+  Sparkles,
+  Layers,
+  Search,
+  CheckCircle2,
   CloudSun,
   Wind,
   Droplets,
   Atom,
   Leaf,
   ShieldCheck,
-  CheckCircle2,
-  Clock,
-  Layers,
-  Sparkles,
+  Building2,
+  ExternalLink,
 } from 'lucide-react';
 
 interface ProjectPreviewMockupProps {
@@ -22,245 +23,275 @@ interface ProjectPreviewMockupProps {
 }
 
 /**
- * High-fidelity interactive Vercel-style mini showcase components
- * Simulates the exact UI, design and interactive state for personal projects
+ * High-fidelity replicas of the actual deployed web systems and interfaces
  */
 export const ProjectPreviewMockup: React.FC<ProjectPreviewMockupProps> = ({ projectId }) => {
-  // 1. UC-METC Coop Loan Monitoring Interactive View
-  if (projectId === 'loan-monitoring') {
-    const [selectedTab, setSelectedTab] = useState<'overview' | 'ledger' | 'amortization'>('overview');
-    const [loanTerm, setLoanTerm] = useState<number>(12);
+  // 1. ChronoNav: Exact Replica of chrononav-ccs.vercel.app
+  if (projectId === 'chrononav') {
+    const [activeFloor, setActiveFloor] = useState<'7F' | '6F' | '5F' | '4F' | '3F' | '2F' | 'MF' | '1F'>('1F');
+
+    const floorDetails = {
+      '7F': { name: '7th Floor', desc: 'CCS Faculty & Multipurpose Hall', route: 'Gate 1 ➔ Elev. 2 ➔ 7F Faculty Room' },
+      '6F': { name: '6th Floor', desc: 'College of Engineering & Labs', route: 'Gate 1 ➔ Elev. 1 ➔ 6F Engg Lab 602' },
+      '5F': { name: '5th Floor', desc: 'College of Computer Studies (CCS)', route: 'Gate 1 ➔ Main Stairs ➔ 5F Lab 501' },
+      '4F': { name: '4th Floor', desc: 'Business & Accountancy Classrooms', route: 'Gate 2 ➔ Elev. 1 ➔ 4F Room 408' },
+      '3F': { name: '3rd Floor', desc: 'Main Library & Reading Center', route: 'Gate 1 ➔ Grand Stairs ➔ 3F Library' },
+      '2F': { name: '2nd Floor', desc: 'Registrar & Accounting Offices', route: 'Gate 1 ➔ Front Stairs ➔ 2F Registrar' },
+      'MF': { name: 'Mezzanine', desc: 'Student Lounge & Guidance Office', route: 'Gate 1 ➔ Mezzanine Stairs' },
+      '1F': { name: '1st Floor', desc: 'Ingress Gates & Medical Clinic', route: 'Gate 1 Ingress ➔ 1F Room 104' },
+    };
+
+    const current = floorDetails[activeFloor];
 
     return (
-      <div className="relative h-full w-full bg-[#090D16] p-3 sm:p-4 text-slate-100 flex flex-col justify-between overflow-hidden select-none font-sans">
-        {/* Mini App Bar */}
-        <div className="flex items-center justify-between border-b border-slate-800/80 pb-2">
-          <div className="flex items-center space-x-2">
-            <span className="flex h-5 w-5 items-center justify-center rounded-md bg-cyan-500/20 text-cyan-400 text-[10px] font-bold">
-              UC
-            </span>
-            <span className="text-[11px] font-bold tracking-tight text-white">
-              COOP Financial Portal
+      <div className="relative h-full w-full bg-[#F8FAFC] text-slate-900 flex flex-col justify-between overflow-hidden select-none font-sans border-b border-slate-200">
+        {/* ChronoNav Clean Top Bar */}
+        <div className="flex items-center justify-between border-b border-slate-200/80 bg-white/90 px-3 py-1.5 backdrop-blur-sm">
+          <div className="flex items-center space-x-1.5">
+            <div className="flex h-5 w-5 items-center justify-center rounded-lg bg-blue-600 text-white shadow-sm">
+              <Compass className="h-3.5 w-3.5" />
+            </div>
+            <span className="font-extrabold tracking-tight text-[11px] text-slate-900 font-sans">
+              CHRONONAV
             </span>
           </div>
-          <div className="flex space-x-1">
-            {(['overview', 'ledger', 'amortization'] as const).map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setSelectedTab(tab)}
-                className={`rounded px-1.5 py-0.5 text-[9px] font-mono capitalize transition-colors ${
-                  selectedTab === tab
-                    ? 'bg-cyan-500/20 text-cyan-300 font-bold border border-cyan-500/40'
-                    : 'text-slate-400 hover:text-slate-200'
-                }`}
-              >
-                {tab}
-              </button>
-            ))}
+
+          <div className="hidden sm:flex items-center space-x-3 text-[9px] font-semibold text-slate-600">
+            <span className="hover:text-blue-600 cursor-pointer">Features</span>
+            <span className="hover:text-blue-600 cursor-pointer">Departments</span>
+            <span className="hover:text-blue-600 cursor-pointer">How It Works</span>
+          </div>
+
+          <div className="flex items-center space-x-1.5">
+            <span className="hidden sm:inline rounded-full bg-blue-50 px-2 py-0.5 text-[8px] font-bold text-blue-600 border border-blue-100">
+              Sign In
+            </span>
+            <span className="rounded-full bg-blue-600 px-2.5 py-0.5 text-[9px] font-bold text-white shadow-sm flex items-center gap-1">
+              <span>Study Load</span>
+              <ArrowRight className="h-2.5 w-2.5" />
+            </span>
           </div>
         </div>
 
-        {/* Tab Contents */}
-        {selectedTab === 'overview' && (
-          <div className="my-auto space-y-2.5">
-            <div className="grid grid-cols-2 gap-2">
-              <div className="rounded-lg border border-slate-800 bg-slate-900/90 p-2">
-                <p className="text-[9px] uppercase tracking-wider text-slate-400 font-semibold">Active Loan Balance</p>
-                <p className="mt-0.5 font-mono text-sm font-bold text-cyan-300">₱450,000.00</p>
-                <div className="mt-1 flex items-center gap-1 text-[9px] text-emerald-400 font-medium">
-                  <TrendingUp className="h-2.5 w-2.5" />
-                  <span>Verified 0.0% variance</span>
+        {/* ChronoNav Main Hero & 3D Simulator Grid */}
+        <div className="my-auto grid grid-cols-12 gap-2.5 p-3 items-center">
+          {/* Left Column: Headline & Feature Badges */}
+          <div className="col-span-12 sm:col-span-7 flex flex-col space-y-1.5">
+            <div className="inline-flex items-center gap-1 rounded-full border border-blue-200 bg-blue-50/80 px-2 py-0.5 text-[8px] font-bold text-blue-700 w-fit">
+              <span>University of Cebu Main • 8 Floors</span>
+              <Sparkles className="h-2 w-2 text-blue-500" />
+            </div>
+
+            <h4 className="text-xs sm:text-sm font-black tracking-tight leading-tight text-slate-900">
+              Navigate Your Campus.{' '}
+              <span className="bg-gradient-to-r from-blue-600 to-sky-500 bg-clip-text text-transparent">
+                Never Miss a Class.
+              </span>
+            </h4>
+
+            <p className="text-[8px] sm:text-[9px] leading-tight text-slate-500 line-clamp-2">
+              Indoor navigation guiding students across corridors, stairs, and elevators with automatic routing.
+            </p>
+
+            {/* Feature Pills */}
+            <div className="grid grid-cols-4 gap-1 pt-1">
+              <div className="rounded-md border border-slate-200/90 bg-white p-1 text-center shadow-xs">
+                <p className="font-bold text-[8px] text-slate-900">8 Levels</p>
+                <p className="text-[7px] text-slate-400">Floors</p>
+              </div>
+              <div className="rounded-md border border-slate-200/90 bg-white p-1 text-center shadow-xs">
+                <p className="font-bold text-[8px] text-slate-900">60+ Rooms</p>
+                <p className="text-[7px] text-slate-400">Mapped</p>
+              </div>
+              <div className="rounded-md border border-slate-200/90 bg-white p-1 text-center shadow-xs">
+                <p className="font-bold text-[8px] text-blue-600">Dijkstra</p>
+                <p className="text-[7px] text-slate-400">Engine</p>
+              </div>
+              <div className="rounded-md border border-slate-200/90 bg-white p-1 text-center shadow-xs">
+                <p className="font-bold text-[8px] text-emerald-600">Zero-Login</p>
+                <p className="text-[7px] text-slate-400">Guest</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column: 3D Layered Floor Plate Simulator Card */}
+          <div className="col-span-12 sm:col-span-5">
+            <div className="rounded-xl border border-blue-100 bg-white p-2 shadow-md">
+              <div className="flex items-center justify-between border-b border-slate-100 pb-1">
+                <span className="font-mono text-[8px] font-bold text-slate-700">3D SIMULATOR</span>
+                <span className="rounded bg-blue-50 px-1 py-0.2 text-[7px] font-bold text-blue-600">
+                  UC MAIN
+                </span>
+              </div>
+
+              {/* Layered Isometric Floor Stack Visual */}
+              <div className="relative my-1.5 flex flex-col items-center justify-center h-16 bg-gradient-to-b from-blue-50/40 to-slate-50/80 rounded-lg overflow-hidden border border-slate-100">
+                {/* Visualizing layered translucent floor planes */}
+                <div className="relative w-28 h-12 flex flex-col items-center justify-center">
+                  <div className="absolute w-24 h-4 rounded-md bg-slate-300/30 border border-slate-300 -translate-y-3 transform skew-x-12" />
+                  <div className="absolute w-24 h-4 rounded-md bg-slate-300/40 border border-slate-300 -translate-y-1.5 transform skew-x-12" />
+                  {/* Highlighted active floor plane */}
+                  <div className="absolute w-26 h-5 rounded-md bg-blue-500/85 border border-blue-400 shadow-[0_0_12px_rgba(37,99,235,0.4)] flex items-center justify-between px-2 text-white font-bold text-[8px] transform skew-x-12 z-10">
+                    <span>{activeFloor}</span>
+                    <span className="text-[7px] font-normal">{current.name}</span>
+                  </div>
+                  <div className="absolute w-24 h-4 rounded-md bg-slate-300/30 border border-slate-300 translate-y-2 transform skew-x-12" />
                 </div>
               </div>
 
-              <div className="rounded-lg border border-slate-800 bg-slate-900/90 p-2">
-                <p className="text-[9px] uppercase tracking-wider text-slate-400 font-semibold">Next Due Date</p>
-                <p className="mt-0.5 font-mono text-sm font-bold text-purple-300">15th Prox.</p>
-                <div className="mt-1 flex items-center gap-1 text-[9px] text-cyan-400 font-medium">
-                  <CheckCircle2 className="h-2.5 w-2.5 text-emerald-400" />
-                  <span>Amortization Active</span>
+              {/* Active Floor Navigator Detail */}
+              <div className="rounded-md bg-blue-50/80 p-1 border border-blue-100 text-[8px]">
+                <div className="flex justify-between font-semibold text-slate-800">
+                  <span className="text-blue-700 font-bold">{current.name}</span>
+                  <span className="text-[7px] text-emerald-600 font-bold">Optimal Route</span>
                 </div>
+                <p className="text-[7px] text-slate-500 truncate mt-0.5">{current.route}</p>
               </div>
-            </div>
 
-            {/* Micro Transaction Row */}
-            <div className="rounded-lg border border-slate-800 bg-slate-900/60 px-2.5 py-1.5 flex items-center justify-between text-[10px]">
-              <div className="flex items-center space-x-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                <span className="font-mono text-slate-300">TXN #8942-ELV</span>
-              </div>
-              <span className="font-mono font-semibold text-emerald-400">+₱37,500.00 Disbursed</span>
-            </div>
-          </div>
-        )}
-
-        {selectedTab === 'ledger' && (
-          <div className="my-auto space-y-1.5 text-[9px]">
-            <div className="grid grid-cols-3 font-mono text-slate-400 border-b border-slate-800 pb-1 px-1">
-              <span>Member ID</span>
-              <span>Principal</span>
-              <span className="text-right">Status</span>
-            </div>
-            {[
-              { id: 'MEM-00142', amount: '₱120,000', status: 'Settled', color: 'text-emerald-400' },
-              { id: 'MEM-00891', amount: '₱85,000', status: 'Current', color: 'text-cyan-400' },
-              { id: 'MEM-01205', amount: '₱245,000', status: 'In Audit', color: 'text-purple-400' },
-            ].map((row) => (
-              <div key={row.id} className="grid grid-cols-3 font-mono bg-slate-900/70 p-1 rounded border border-slate-800/80">
-                <span className="text-slate-300">{row.id}</span>
-                <span className="text-slate-200">{row.amount}</span>
-                <span className={`text-right font-semibold ${row.color}`}>{row.status}</span>
-              </div>
-            ))}
-          </div>
-        )}
-
-        {selectedTab === 'amortization' && (
-          <div className="my-auto space-y-2">
-            <div className="flex items-center justify-between text-[10px]">
-              <span className="text-slate-300 font-medium">Repayment Term</span>
-              <div className="flex gap-1">
-                {[6, 12, 24].map((term) => (
+              {/* Floor Switcher Tabs */}
+              <div className="mt-1.5 flex justify-between gap-0.5">
+                {(['7F', '6F', '5F', '4F', '3F', '2F', 'MF', '1F'] as const).map((fl) => (
                   <button
-                    key={term}
-                    onClick={() => setLoanTerm(term)}
-                    className={`px-1.5 py-0.5 rounded text-[9px] font-mono ${
-                      loanTerm === term ? 'bg-cyan-500 text-black font-bold' : 'bg-slate-800 text-slate-300'
+                    key={fl}
+                    onClick={() => setActiveFloor(fl)}
+                    className={`flex-1 py-0.5 rounded text-[7px] font-bold transition-all ${
+                      activeFloor === fl
+                        ? 'bg-blue-600 text-white shadow-xs'
+                        : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
                     }`}
                   >
-                    {term}m
+                    {fl}
                   </button>
                 ))}
               </div>
             </div>
-            <div className="rounded-lg bg-slate-900/90 p-2 border border-slate-800 text-[10px]">
-              <div className="flex justify-between text-slate-400 text-[9px]">
-                <span>Est. Monthly Amortization:</span>
-                <span className="font-mono font-bold text-cyan-300">₱{(450000 / loanTerm).toFixed(2)}</span>
-              </div>
-              <div className="mt-1.5 h-1.5 w-full rounded-full bg-slate-800 overflow-hidden">
-                <div className="h-full bg-gradient-to-r from-cyan-400 to-blue-500 w-3/4 rounded-full" />
-              </div>
-            </div>
           </div>
-        )}
+        </div>
 
-        {/* Footer info */}
-        <div className="flex items-center justify-between border-t border-slate-800/80 pt-1.5 text-[9px] text-slate-400">
-          <span className="flex items-center gap-1">
-            <ShieldCheck className="h-3 w-3 text-emerald-400" />
-            <span>PostgreSQL ACID Compliant</span>
+        {/* ChronoNav Bottom Bar */}
+        <div className="flex items-center justify-between border-t border-slate-200/90 bg-slate-50 px-3 py-1 text-[8px] text-slate-500">
+          <span className="flex items-center gap-1 text-slate-700 font-medium">
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+            <span>Campus Live Navigation System</span>
           </span>
-          <span className="font-mono text-cyan-400">Railway PaaS</span>
+          <span className="font-mono text-blue-600 font-bold">chrononav-ccs.vercel.app</span>
         </div>
       </div>
     );
   }
 
-  // 2. ChronoNav Campus Navigation & Scheduler Interactive View
-  if (projectId === 'chrononav') {
-    const [activeFloor, setActiveFloor] = useState<'FL-1' | 'FL-2' | 'FL-4' | 'CCS-LAB'>('CCS-LAB');
+  // 2. UC-METC Coop Loan Monitoring: Cooperative Financial Portal
+  if (projectId === 'coop-sync' || projectId === 'loan-monitoring') {
+    const [selectedView, setSelectedView] = useState<'loans' | 'members' | 'audit'>('loans');
 
     return (
-      <div className="relative h-full w-full bg-[#080D1A] p-3 sm:p-4 text-slate-100 flex flex-col justify-between overflow-hidden select-none font-sans">
-        {/* Header */}
-        <div className="flex items-center justify-between border-b border-slate-800/80 pb-2">
-          <div className="flex items-center space-x-1.5">
-            <Compass className="h-4 w-4 text-cyan-400" />
-            <span className="text-[11px] font-bold text-white tracking-tight">ChronoNav Main Campus</span>
+      <div className="relative h-full w-full bg-[#0E1726] text-slate-100 flex flex-col justify-between overflow-hidden select-none font-sans">
+        {/* Cooperative Dashboard Header */}
+        <div className="flex items-center justify-between border-b border-slate-800 bg-[#131F37] px-3 py-2">
+          <div className="flex items-center space-x-2">
+            <div className="flex h-5 w-5 items-center justify-center rounded-md bg-emerald-500 font-bold text-white text-[9px]">
+              UC
+            </div>
+            <div>
+              <p className="text-[10px] font-bold text-white leading-none">UC-METC COOP</p>
+              <p className="text-[7px] text-slate-400">Loan Monitoring & Ledger</p>
+            </div>
           </div>
           <div className="flex space-x-1">
-            {(['FL-1', 'FL-2', 'FL-4', 'CCS-LAB'] as const).map((fl) => (
+            {(['loans', 'members', 'audit'] as const).map((view) => (
               <button
-                key={fl}
-                onClick={() => setActiveFloor(fl)}
-                className={`rounded px-1.5 py-0.5 text-[9px] font-mono transition-colors ${
-                  activeFloor === fl
-                    ? 'bg-cyan-500 text-black font-bold'
-                    : 'bg-slate-900 text-slate-400 hover:text-slate-200 border border-slate-800'
+                key={view}
+                onClick={() => setSelectedView(view)}
+                className={`rounded px-1.5 py-0.5 text-[8px] font-mono capitalize transition-all ${
+                  selectedView === view
+                    ? 'bg-emerald-500 text-black font-bold'
+                    : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800'
                 }`}
               >
-                {fl}
+                {view}
               </button>
             ))}
           </div>
         </div>
 
-        {/* Interactive Floor Path Map Viewport */}
-        <div className="my-auto relative rounded-xl border border-cyan-500/30 bg-slate-950/80 p-2.5 overflow-hidden">
-          {/* Floor grid visual */}
-          <div className="grid grid-cols-3 gap-2">
-            <div className={`rounded-lg border p-1.5 text-center transition-all ${
-              activeFloor === 'CCS-LAB'
-                ? 'border-cyan-400 bg-cyan-950/40 shadow-[0_0_12px_rgba(0,240,255,0.3)]'
-                : 'border-slate-800 bg-slate-900/60'
-            }`}>
-              <span className="font-mono text-[10px] font-bold text-cyan-300">Lab 402</span>
-              <p className="text-[8px] text-slate-400">Web Sys II</p>
+        {/* Main Financial Metrics */}
+        <div className="my-auto p-3 space-y-2">
+          <div className="grid grid-cols-3 gap-1.5">
+            <div className="rounded-lg border border-slate-800 bg-slate-900/90 p-1.5">
+              <span className="text-[7px] text-slate-400 uppercase font-semibold">Total Disbursed</span>
+              <p className="font-mono text-xs font-bold text-emerald-400">₱14.8M</p>
             </div>
-
-            <div className="rounded-lg border border-slate-800 bg-slate-900/60 p-1.5 text-center">
-              <span className="font-mono text-[10px] font-bold text-slate-300">Lecture 405</span>
-              <p className="text-[8px] text-emerald-400">Vacant Now</p>
+            <div className="rounded-lg border border-slate-800 bg-slate-900/90 p-1.5">
+              <span className="text-[7px] text-slate-400 uppercase font-semibold">Active Members</span>
+              <p className="font-mono text-xs font-bold text-cyan-400">1,428</p>
             </div>
-
-            <div className="rounded-lg border border-slate-800 bg-slate-900/60 p-1.5 text-center">
-              <span className="font-mono text-[10px] font-bold text-purple-300">Server Rm</span>
-              <p className="text-[8px] text-slate-400">Restricted</p>
+            <div className="rounded-lg border border-slate-800 bg-slate-900/90 p-1.5">
+              <span className="text-[7px] text-slate-400 uppercase font-semibold">Audit Health</span>
+              <p className="font-mono text-xs font-bold text-purple-400">100% Zero-Loss</p>
             </div>
           </div>
 
-          {/* Dynamic waypoint route indicator */}
-          <div className="mt-2.5 flex items-center justify-between rounded-lg bg-slate-900/90 px-2 py-1.5 border border-slate-800 text-[10px]">
-            <div className="flex items-center gap-1.5 text-cyan-300">
-              <MapPin className="h-3 w-3 text-cyan-400 animate-bounce" />
-              <span className="font-medium">Direct Path: Lobby ➔ Elev. 2 ➔ CCS Lab</span>
+          {/* Member Ledger Rows */}
+          <div className="rounded-lg border border-slate-800 bg-slate-950/70 p-2 space-y-1 text-[8px] font-mono">
+            <div className="flex justify-between text-slate-400 border-b border-slate-800 pb-0.5">
+              <span>Account #</span>
+              <span>Amortization</span>
+              <span>Status</span>
             </div>
-            <span className="font-mono text-[9px] text-emerald-400 font-semibold">ETA 1m 20s</span>
+            <div className="flex justify-between text-slate-200">
+              <span>#METC-2041</span>
+              <span>₱12,500/mo</span>
+              <span className="text-emerald-400 font-bold">Approved</span>
+            </div>
+            <div className="flex justify-between text-slate-200">
+              <span>#METC-1892</span>
+              <span>₱8,200/mo</span>
+              <span className="text-cyan-400 font-bold">Current</span>
+            </div>
           </div>
         </div>
 
         {/* Footer */}
-        <div className="flex items-center justify-between border-t border-slate-800/80 pt-1.5 text-[9px] text-slate-400">
-          <span className="flex items-center gap-1">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            <span>Supabase Real-time Sync</span>
+        <div className="flex items-center justify-between border-t border-slate-800 bg-[#0A101D] px-3 py-1 text-[8px] text-slate-400">
+          <span className="flex items-center gap-1 text-emerald-400">
+            <ShieldCheck className="h-2.5 w-2.5" />
+            <span>PostgreSQL ACID Relational Core</span>
           </span>
-          <span className="font-mono text-purple-300">Indoor Pathfinding</span>
+          <span className="font-mono text-slate-300">Railway Deployed</span>
         </div>
       </div>
     );
   }
 
-  // 3. SkyCast Weather Intelligence Interactive View
+  // 3. SkyCast Weather Intelligence Visualizer
   if (projectId === 'skycast-os') {
     const [city, setCity] = useState<'Cebu' | 'Tokyo' | 'London'>('Cebu');
 
     const weatherData = {
-      Cebu: { temp: '31°C', condition: 'Tropical Breeze', humidity: '76%', wind: '14 km/h', iconColor: 'text-amber-400' },
-      Tokyo: { temp: '19°C', condition: 'Clear Sky', humidity: '52%', wind: '9 km/h', iconColor: 'text-sky-300' },
-      London: { temp: '14°C', condition: 'Light Mist', humidity: '82%', wind: '18 km/h', iconColor: 'text-cyan-200' },
+      Cebu: { temp: '31°C', condition: 'Tropical Sun & Breeze', humidity: '76%', wind: '14 km/h', iconColor: 'text-amber-400' },
+      Tokyo: { temp: '19°C', condition: 'Clear Atmosphere', humidity: '52%', wind: '9 km/h', iconColor: 'text-sky-300' },
+      London: { temp: '14°C', condition: 'Light Precipitation', humidity: '82%', wind: '18 km/h', iconColor: 'text-cyan-200' },
     };
 
     const current = weatherData[city];
 
     return (
-      <div className="relative h-full w-full bg-[#08101E] p-3 sm:p-4 text-slate-100 flex flex-col justify-between overflow-hidden select-none font-sans">
-        {/* Header with City Selector */}
-        <div className="flex items-center justify-between border-b border-slate-800/80 pb-2">
+      <div className="relative h-full w-full bg-[#081120] text-slate-100 flex flex-col justify-between overflow-hidden select-none font-sans">
+        {/* Header */}
+        <div className="flex items-center justify-between border-b border-slate-800 bg-slate-950/80 px-3 py-1.5">
           <div className="flex items-center space-x-1.5">
             <CloudSun className={`h-4 w-4 ${current.iconColor}`} />
-            <span className="text-[11px] font-bold text-white tracking-tight">SkyCast OS Visualizer</span>
+            <span className="text-[10px] font-bold text-white">SkyCast Weather Intelligence</span>
           </div>
           <div className="flex space-x-1">
             {(['Cebu', 'Tokyo', 'London'] as const).map((c) => (
               <button
                 key={c}
                 onClick={() => setCity(c)}
-                className={`rounded px-1.5 py-0.5 text-[9px] font-mono transition-colors ${
+                className={`rounded px-1.5 py-0.5 text-[8px] font-mono transition-colors ${
                   city === c
                     ? 'bg-cyan-500 text-black font-bold'
-                    : 'bg-slate-900 text-slate-400 hover:text-slate-200 border border-slate-800'
+                    : 'bg-slate-900 text-slate-400 border border-slate-800'
                 }`}
               >
                 {c}
@@ -270,128 +301,112 @@ export const ProjectPreviewMockup: React.FC<ProjectPreviewMockupProps> = ({ proj
         </div>
 
         {/* Live Weather Metrics */}
-        <div className="my-auto grid grid-cols-12 gap-2 items-center">
+        <div className="my-auto p-3 grid grid-cols-12 gap-2 items-center">
           <div className="col-span-6 flex flex-col">
             <div className="flex items-baseline space-x-1">
-              <span className="font-mono text-2xl sm:text-3xl font-black text-white">{current.temp}</span>
-              <span className="text-[10px] text-cyan-400 font-semibold">{city}</span>
+              <span className="font-mono text-2xl font-black text-white">{current.temp}</span>
+              <span className="text-[10px] text-cyan-400 font-bold">{city}</span>
             </div>
-            <p className="text-[10px] text-slate-300 font-medium">{current.condition}</p>
+            <p className="text-[8px] text-slate-300 font-medium">{current.condition}</p>
           </div>
 
-          <div className="col-span-6 grid grid-cols-2 gap-1.5 text-[9px]">
-            <div className="rounded-lg border border-slate-800 bg-slate-900/80 p-1.5">
+          <div className="col-span-6 grid grid-cols-2 gap-1 text-[8px]">
+            <div className="rounded-md border border-slate-800 bg-slate-900/90 p-1">
               <div className="flex items-center gap-1 text-slate-400">
-                <Droplets className="h-2.5 w-2.5 text-cyan-400" />
+                <Droplets className="h-2 w-2 text-cyan-400" />
                 <span>Humidity</span>
               </div>
-              <p className="mt-0.5 font-mono font-bold text-white">{current.humidity}</p>
+              <p className="font-mono font-bold text-white">{current.humidity}</p>
             </div>
-            <div className="rounded-lg border border-slate-800 bg-slate-900/80 p-1.5">
+            <div className="rounded-md border border-slate-800 bg-slate-900/90 p-1">
               <div className="flex items-center gap-1 text-slate-400">
-                <Wind className="h-2.5 w-2.5 text-sky-400" />
+                <Wind className="h-2 w-2 text-sky-400" />
                 <span>Wind</span>
               </div>
-              <p className="mt-0.5 font-mono font-bold text-white">{current.wind}</p>
+              <p className="font-mono font-bold text-white">{current.wind}</p>
             </div>
           </div>
         </div>
 
-        {/* 5-Day Micro Bar */}
-        <div className="flex items-center justify-between rounded-lg bg-slate-950/70 p-1.5 border border-slate-800/90 text-[8px] font-mono text-slate-400">
-          <span className="text-cyan-300">MON 31°</span>
-          <span>TUE 30°</span>
-          <span>WED 29°</span>
-          <span>THU 32°</span>
-          <span className="text-amber-400">FRI 33°</span>
-        </div>
-
-        {/* Footer */}
-        <div className="flex items-center justify-between border-t border-slate-800/80 pt-1.5 text-[9px] text-slate-400">
-          <span className="font-mono text-cyan-400">Canvas Particle Physics</span>
-          <span className="text-slate-300">60 FPS Sync</span>
+        {/* Micro 5-Day Bar */}
+        <div className="flex items-center justify-between border-t border-slate-800/80 bg-slate-950 px-3 py-1 text-[8px] font-mono text-slate-400">
+          <span className="text-cyan-400">Canvas Particle Physics</span>
+          <span className="text-emerald-400">60 FPS Sync</span>
         </div>
       </div>
     );
   }
 
-  // 4. NanoWorld Science Hub Interactive View
+  // 4. NanoWorld Science Exploration Hub
   if (projectId === 'nanoworld') {
-    const [activeNode, setActiveNode] = useState<'Graphene' | 'Nanotubes' | 'Quantum Dots'>('Graphene');
+    const [topic, setTopic] = useState<'Graphene' | 'Nanotubes' | 'Quantum'>('Graphene');
 
     return (
-      <div className="relative h-full w-full bg-[#0A0D18] p-3 sm:p-4 text-slate-100 flex flex-col justify-between overflow-hidden select-none font-sans">
-        {/* Header */}
-        <div className="flex items-center justify-between border-b border-slate-800/80 pb-2">
+      <div className="relative h-full w-full bg-[#0A0D18] text-slate-100 flex flex-col justify-between overflow-hidden select-none font-sans">
+        <div className="flex items-center justify-between border-b border-slate-800 bg-slate-950/80 px-3 py-1.5">
           <div className="flex items-center space-x-1.5">
-            <Atom className="h-4 w-4 text-purple-400 animate-spin" style={{ animationDuration: '8s' }} />
-            <span className="text-[11px] font-bold text-white tracking-tight">NanoWorld Science Hub</span>
+            <Atom className="h-3.5 w-3.5 text-purple-400 animate-spin" style={{ animationDuration: '10s' }} />
+            <span className="text-[10px] font-bold text-white">NanoWorld Educational Hub</span>
           </div>
-          <span className="rounded bg-purple-950/60 border border-purple-500/40 px-1.5 py-0.5 font-mono text-[9px] text-purple-300">
-            Interactive 3D
+          <span className="rounded bg-purple-950/60 border border-purple-500/40 px-1.5 py-0.5 text-[8px] font-mono text-purple-300">
+            Interactive Modules
           </span>
         </div>
 
-        {/* Interactive Topic Selector & Visual */}
-        <div className="my-auto space-y-2">
-          <div className="flex justify-center gap-1.5">
-            {(['Graphene', 'Nanotubes', 'Quantum Dots'] as const).map((node) => (
+        <div className="my-auto p-3 space-y-2">
+          <div className="flex justify-center gap-1">
+            {(['Graphene', 'Nanotubes', 'Quantum'] as const).map((t) => (
               <button
-                key={node}
-                onClick={() => setActiveNode(node)}
-                className={`rounded-full px-2 py-0.5 text-[9px] font-semibold transition-all ${
-                  activeNode === node
-                    ? 'bg-gradient-to-r from-purple-500 to-indigo-500 text-white shadow-[0_0_10px_rgba(139,92,246,0.5)]'
-                    : 'bg-slate-900 border border-slate-800 text-slate-400 hover:text-slate-200'
+                key={t}
+                onClick={() => setTopic(t)}
+                className={`rounded-full px-2 py-0.5 text-[8px] font-semibold transition-all ${
+                  topic === t
+                    ? 'bg-purple-600 text-white font-bold shadow-xs'
+                    : 'bg-slate-900 border border-slate-800 text-slate-400'
                 }`}
               >
-                {node}
+                {t}
               </button>
             ))}
           </div>
 
-          <div className="rounded-xl border border-slate-800 bg-slate-950/80 p-2.5 flex items-center justify-between text-[10px]">
+          <div className="rounded-lg border border-slate-800 bg-slate-950/80 p-2 flex items-center justify-between text-[9px]">
             <div>
-              <p className="font-bold text-cyan-300">{activeNode} Lattice</p>
-              <p className="text-[8px] text-slate-400">Atomic thickness: 0.345 nm</p>
+              <p className="font-bold text-cyan-300">{topic} Structure</p>
+              <p className="text-[7px] text-slate-400">Atomic thickness: 0.345 nm</p>
             </div>
-            <div className="flex items-center gap-1 font-mono text-[9px] text-emerald-400">
-              <Sparkles className="h-3 w-3 text-purple-400" />
-              <span>Simulation Active</span>
-            </div>
+            <span className="font-mono text-[8px] text-emerald-400 font-semibold">98+ Score</span>
           </div>
         </div>
 
-        {/* Footer */}
-        <div className="flex items-center justify-between border-t border-slate-800/80 pt-1.5 text-[9px] text-slate-400">
-          <span>Vector Interactive Canvas</span>
+        <div className="flex items-center justify-between border-t border-slate-800/80 bg-slate-950 px-3 py-1 text-[8px] text-slate-400">
+          <span>Modular STEM Showcase</span>
           <span className="font-mono text-purple-300">GitHub Pages</span>
         </div>
       </div>
     );
   }
 
-  // 5. Biodiversity Conservation Hub Interactive View
+  // 5. Biodiversity Conservation Hub
   if (projectId === 'biodiversity') {
     const [habitat, setHabitat] = useState<'Marine' | 'Rainforest' | 'Highland'>('Marine');
 
     return (
-      <div className="relative h-full w-full bg-[#08120F] p-3 sm:p-4 text-slate-100 flex flex-col justify-between overflow-hidden select-none font-sans">
-        {/* Header */}
-        <div className="flex items-center justify-between border-b border-slate-800/80 pb-2">
+      <div className="relative h-full w-full bg-[#08120F] text-slate-100 flex flex-col justify-between overflow-hidden select-none font-sans">
+        <div className="flex items-center justify-between border-b border-slate-800 bg-slate-950/80 px-3 py-1.5">
           <div className="flex items-center space-x-1.5">
-            <Leaf className="h-4 w-4 text-emerald-400" />
-            <span className="text-[11px] font-bold text-white tracking-tight">Biodiversity Hub</span>
+            <Leaf className="h-3.5 w-3.5 text-emerald-400" />
+            <span className="text-[10px] font-bold text-white">Biodiversity Conservation Hub</span>
           </div>
           <div className="flex space-x-1">
             {(['Marine', 'Rainforest', 'Highland'] as const).map((h) => (
               <button
                 key={h}
                 onClick={() => setHabitat(h)}
-                className={`rounded px-1.5 py-0.5 text-[9px] font-mono transition-colors ${
+                className={`rounded px-1.5 py-0.5 text-[8px] font-mono transition-colors ${
                   habitat === h
                     ? 'bg-emerald-500 text-black font-bold'
-                    : 'bg-slate-900 text-slate-400 hover:text-slate-200 border border-slate-800'
+                    : 'bg-slate-900 text-slate-400 border border-slate-800'
                 }`}
               >
                 {h}
@@ -400,31 +415,24 @@ export const ProjectPreviewMockup: React.FC<ProjectPreviewMockupProps> = ({ proj
           </div>
         </div>
 
-        {/* Habitat Metrics View */}
-        <div className="my-auto space-y-2">
-          <div className="grid grid-cols-2 gap-2">
-            <div className="rounded-lg border border-slate-800 bg-slate-900/90 p-2">
-              <p className="text-[8px] uppercase tracking-wider text-slate-400 font-semibold">Cataloged Species</p>
-              <p className="mt-0.5 font-mono text-base font-bold text-emerald-400">
+        <div className="my-auto p-3 space-y-1.5">
+          <div className="grid grid-cols-2 gap-1.5">
+            <div className="rounded-lg border border-slate-800 bg-slate-900/90 p-1.5">
+              <span className="text-[7px] text-slate-400 uppercase font-semibold">Cataloged Species</span>
+              <p className="font-mono text-sm font-bold text-emerald-400">
                 {habitat === 'Marine' ? '184 Species' : habitat === 'Rainforest' ? '292 Species' : '96 Species'}
               </p>
             </div>
-            <div className="rounded-lg border border-slate-800 bg-slate-900/90 p-2">
-              <p className="text-[8px] uppercase tracking-wider text-slate-400 font-semibold">Protection Index</p>
-              <p className="mt-0.5 font-mono text-base font-bold text-cyan-300">94.8% Secure</p>
+            <div className="rounded-lg border border-slate-800 bg-slate-900/90 p-1.5">
+              <span className="text-[7px] text-slate-400 uppercase font-semibold">Protection Index</span>
+              <p className="font-mono text-sm font-bold text-cyan-300">94.8% Secure</p>
             </div>
-          </div>
-
-          <div className="flex items-center justify-between rounded-lg bg-slate-950/70 p-1.5 border border-slate-800 text-[9px]">
-            <span className="text-slate-300">Active Habitat: <strong className="text-emerald-400">{habitat} Eco-Zone</strong></span>
-            <span className="font-mono text-emerald-400 font-semibold">Lighthouse 98+</span>
           </div>
         </div>
 
-        {/* Footer */}
-        <div className="flex items-center justify-between border-t border-slate-800/80 pt-1.5 text-[9px] text-slate-400">
-          <span className="text-emerald-400">Endangered Species Monitor</span>
-          <span className="font-mono text-cyan-300">Vercel Deploy</span>
+        <div className="flex items-center justify-between border-t border-slate-800/80 bg-slate-950 px-3 py-1 text-[8px] text-slate-400">
+          <span className="text-emerald-400">Species Biodiversity Matrix</span>
+          <span className="font-mono text-cyan-300">Lighthouse 98+</span>
         </div>
       </div>
     );
@@ -439,11 +447,6 @@ export const ProjectPreviewMockup: React.FC<ProjectPreviewMockupProps> = ({ proj
       </div>
       <div className="my-auto text-center">
         <p className="font-mono text-sm font-bold text-white">Production Build</p>
-        <p className="text-xs text-slate-400">Verified Vercel Serverless Architecture</p>
-      </div>
-      <div className="border-t border-slate-800 pt-2 text-[10px] text-slate-400 flex justify-between">
-        <span>Framework Ready</span>
-        <span className="text-cyan-400">SSR Enabled</span>
       </div>
     </div>
   );

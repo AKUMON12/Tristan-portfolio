@@ -27,7 +27,7 @@ export const About = () => {
             About Me
           </h2>
           <p className="mx-auto mt-2 max-w-xl text-sm text-slate-400">
-            Full-Stack Developer focused on building clean, high-performance web systems with deliberate UI/UX craftsmanship.
+            Frontend Developer & Web Designer dedicated to creating intuitive, responsive interfaces with clean modern code.
           </p>
         </div>
 
@@ -39,16 +39,16 @@ export const About = () => {
               <div className="mb-3 flex items-center gap-2 text-cyan-400">
                 <Terminal className="h-4 w-4" />
                 <span className="font-mono text-xs font-bold uppercase tracking-wider">
-                  Engineering Focus
+                  Design & Frontend Craft
                 </span>
               </div>
 
               <h3 className="text-xl sm:text-2xl font-bold text-white">
-                Design Precision Coupled with Scalable Full-Stack Logic
+                Design-First Aesthetics Coupled with Modern Frontend Architecture
               </h3>
 
               <p className="mt-3 text-sm sm:text-base leading-relaxed text-slate-300">
-                I am <span className="font-semibold text-white">Tristan Jesus V. Elvinia</span> (<span className="font-mono text-cyan-400">Akumon</span>), an Information Technology graduate specializing in modern web applications, frontend architecture, and responsive user experiences.
+                I am <span className="font-semibold text-white">Tristan Jesus V. Elvinia</span> (<span className="font-mono text-cyan-400">Akumon</span>), an Information Technology graduate specializing in frontend development, responsive UI design, and interactive web experiences. Having cultivated a strong eye for visual design since senior high school, I am driven to craft engaging user interfaces while expanding my backend expertise with <span className="text-cyan-300 font-medium">Node.js</span> and <span className="text-purple-300 font-medium">Next.js</span>.
               </p>
             </div>
 
@@ -57,9 +57,9 @@ export const About = () => {
               <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-2.5">
                 <p className="text-xs font-bold text-white flex items-center gap-1.5">
                   <Code className="h-3.5 w-3.5 text-cyan-400" />
-                  <span>Full-Stack</span>
+                  <span>Frontend Dev</span>
                 </p>
-                <p className="mt-0.5 text-[11px] text-slate-400">Next.js & PostgreSQL</p>
+                <p className="mt-0.5 text-[11px] text-slate-400">React, Next.js & TypeScript</p>
               </div>
               <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-2.5">
                 <p className="text-xs font-bold text-white flex items-center gap-1.5">
