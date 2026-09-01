@@ -8,8 +8,11 @@ export const metadata: Metadata = {
   description:
     'Portfolio of Tristan Jesus V. Elvinia (Akumon). Frontend Developer and Web Designer specializing in React, Next.js, Node.js, and modern responsive UI architectures.',
   icons: {
-    icon: '/icon.svg',
-    shortcut: '/icon.svg',
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/icon.svg', type: 'image/svg+xml' },
+    ],
+    shortcut: '/favicon.svg',
     apple: '/icon.svg',
   },
   keywords: [
@@ -25,9 +28,9 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'Tristan Jesus V. Elvinia', url: 'https://github.com/AKUMON12' }],
   openGraph: {
-    title: 'Tristan Jesus V. Elvinia (Akumon) | Full-Stack Developer',
+    title: 'Tristan Jesus V. Elvinia (Akumon) | Frontend Developer & Web Designer',
     description:
-      'Explore production web systems, capstones, IoT hardware projects, and engineering case studies.',
+      'Explore production web systems, capstones, and responsive UI engineering case studies.',
     url: 'https://elvinia-portfolio.vercel.app',
     siteName: 'Tristan Elvinia Portfolio',
     images: [
@@ -51,6 +54,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark scroll-smooth" suppressHydrationWarning>
       <head>
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="alternate icon" href="/icon.svg" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
