@@ -16,17 +16,18 @@
   --input-bg: rgba(7, 10, 16, 0.8);
 }
 
+/* Eye-Friendly Soft Light Mode Palette */
 html.light {
-  --bg-primary: #F8FAFC;
+  --bg-primary: #F4F6F9;
   --bg-secondary: #FFFFFF;
-  --card-bg: rgba(255, 255, 255, 0.95);
-  --card-border: rgba(226, 232, 240, 0.9);
+  --card-bg: #FFFFFF;
+  --card-border: #E2E8F0;
   --text-primary: #0F172A;
-  --text-secondary: #475569;
-  --text-muted: #94A3B8;
+  --text-secondary: #334155;
+  --text-muted: #64748B;
   --accent-cyan: #0284C7;
   --accent-purple: #7C3AED;
-  --glow-cyan: rgba(2, 132, 199, 0.2);
+  --glow-cyan: rgba(2, 132, 199, 0.15);
   --input-bg: #FFFFFF;
 }
 
@@ -49,16 +50,23 @@ body {
 
 /* Light mode overrides for surfaces */
 html.light body {
-  background-color: #F8FAFC;
+  background-color: #F4F6F9;
   color: #0F172A;
 }
 
 html.light .bg-\[\#0A0D14\] {
-  background-color: #F8FAFC !important;
+  background-color: #F4F6F9 !important;
+}
+
+html.light .bg-\[\#0A0D14\]\/80,
+html.light .bg-\[\#0A0D14\]\/85,
+html.light .bg-\[\#0A0D14\]\/90,
+html.light .bg-\[\#0A0D14\]\/95 {
+  background-color: rgba(244, 246, 249, 0.94) !important;
 }
 
 html.light .bg-\[\#070A10\] {
-  background-color: #F1F5F9 !important;
+  background-color: #EEF2F6 !important;
 }
 
 html.light .bg-\[\#0E131F\] {
@@ -69,8 +77,8 @@ html.light .bg-\[\#0E131F\]\/80,
 html.light .bg-\[\#0E131F\]\/85,
 html.light .bg-\[\#0E131F\]\/90,
 html.light .bg-\[\#0E131F\]\/95 {
-  background-color: rgba(255, 255, 255, 0.92) !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  background-color: #FFFFFF !important;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
 }
 
 html.light .border-slate-800,
@@ -86,16 +94,18 @@ html.light .bg-slate-900\/60,
 html.light .bg-slate-900\/70,
 html.light .bg-slate-900\/80,
 html.light .bg-slate-900\/90 {
-  background-color: #F1F5F9 !important;
+  background-color: #F8FAFC !important;
+  border-color: #E2E8F0;
 }
 
 html.light .bg-slate-950,
 html.light .bg-slate-950\/70,
 html.light .bg-slate-950\/80,
 html.light .bg-slate-950\/90 {
-  background-color: #F8FAFC !important;
+  background-color: #F1F5F9 !important;
 }
 
+/* Light mode text colors */
 html.light .text-white {
   color: #0F172A !important;
 }
@@ -125,6 +135,7 @@ html.light .bg-cyan-950\/20,
 html.light .bg-cyan-950\/30,
 html.light .bg-cyan-950\/40 {
   background-color: #E0F2FE !important;
+  border-color: #BAE6FD !important;
 }
 
 html.light .text-cyan-300,
@@ -136,6 +147,7 @@ html.light .bg-purple-950\/20,
 html.light .bg-purple-950\/30,
 html.light .bg-purple-950\/40 {
   background-color: #F3E8FF !important;
+  border-color: #E9D5FF !important;
 }
 
 html.light .text-purple-300,
@@ -147,6 +159,11 @@ html.light .bg-emerald-950\/20,
 html.light .bg-emerald-950\/30,
 html.light .bg-emerald-950\/40 {
   background-color: #DCFCE7 !important;
+  border-color: #BBF7D0 !important;
+}
+
+html.light .text-emerald-400 {
+  color: #059669 !important;
 }
 
 html.light .bg-red-950\/10,

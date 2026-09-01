@@ -59,20 +59,20 @@ export const TechParticleBackground = () => {
 
     const isLight = document.documentElement.classList.contains('light');
     const colors = isLight
-      ? ['#0284C7', '#7C3AED', '#2563EB', '#0D9488']
+      ? ['#0284C7', '#6366F1', '#475569', '#0D9488']
       : ['#00F0FF', '#8B5CF6', '#38BDF8'];
 
-    const particleCount = Math.min(45, Math.floor((width * height) / 28000));
+    const particleCount = Math.min(42, Math.floor((width * height) / 30000));
     const particles: Particle[] = Array.from({ length: particleCount }, () => {
       const color = colors[Math.floor(Math.random() * colors.length)];
-      const baseOpacity = isLight ? (0.12 + Math.random() * 0.2) : (0.15 + Math.random() * 0.25);
+      const baseOpacity = isLight ? (0.08 + Math.random() * 0.12) : (0.15 + Math.random() * 0.25);
       return {
         x: Math.random() * width,
         y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.4,
-        vy: -(0.3 + Math.random() * 0.6), // float upward
+        vx: (Math.random() - 0.5) * 0.35,
+        vy: -(0.25 + Math.random() * 0.5), // gentle float upward
         symbol: symbols[Math.floor(Math.random() * symbols.length)],
-        size: 11 + Math.random() * 6,
+        size: 11 + Math.random() * 5,
         baseOpacity,
         opacity: baseOpacity,
         color,
@@ -104,9 +104,11 @@ export const TechParticleBackground = () => {
         let activeOpacity = p.baseOpacity;
         if (dist < mouse.radius && dist > 0) {
           const force = (mouse.radius - dist) / mouse.radius;
-          p.x -= (dx / dist) * force * 3;
-          p.y -= (dy / dist) * force * 3;
-          activeOpacity = Math.min(0.85, p.baseOpacity + 0.45);
+          p.x -= (dx / dist) * force * 2.5;
+          p.y -= (dy / dist) * force * 2.5;
+          activeOpacity = currentlyLight
+            ? Math.min(0.4, p.baseOpacity + 0.2)
+            : Math.min(0.85, p.baseOpacity + 0.45);
         }
 
         ctx.font = `600 ${p.size}px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace`;
@@ -115,10 +117,10 @@ export const TechParticleBackground = () => {
         ctx.fillText(p.symbol, p.x, p.y);
       });
 
-      // Subtle grid dots
-      ctx.globalAlpha = currentlyLight ? 0.04 : 0.05;
+      // Subtle ambient grid dots
+      ctx.globalAlpha = currentlyLight ? 0.025 : 0.05;
       ctx.fillStyle = currentlyLight ? '#0284C7' : '#00F0FF';
-      const step = 60;
+      const step = 64;
       for (let x = 0; x < width; x += step) {
         for (let y = 0; y < height; y += step) {
           ctx.beginPath();

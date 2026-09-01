@@ -9,6 +9,7 @@ import { About } from '../components/sections/About';
 import { Services } from '../components/sections/Services';
 import { Projects } from '../components/sections/Projects';
 import { Skills } from '../components/sections/Skills';
+import { ToolsUsed } from '../components/sections/ToolsUsed';
 import { Certifications } from '../components/sections/Certifications';
 import { SuspenseLab } from '../components/sections/SuspenseLab';
 import { Contact } from '../components/sections/Contact';
@@ -41,11 +42,14 @@ export default function Home() {
       {/* Services & Capabilities Bento */}
       <Services />
 
-      {/* Featured Projects with Case Studies */}
+      {/* Featured Projects with Case Studies & Vercel Mini-Showcases */}
       <Projects onSelectProject={(project) => setSelectedProject(project)} />
 
       {/* Technical Skills Matrix */}
       <Skills />
+
+      {/* Tools & Tech Stack Matrix */}
+      <ToolsUsed />
 
       {/* Cisco Credentials & Training Vault */}
       <Certifications />
