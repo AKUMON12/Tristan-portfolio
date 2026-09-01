@@ -12,7 +12,7 @@ export const services: ServiceItem[] = [
   {
     id: 'ui-ux-design',
     title: 'UI/UX & Frontend Engineering',
-    description: 'High-contrast, accessible, and responsive user interfaces that mesmerize visitors with micro-interactions, dark/light aesthetics, and fluid animations.',
+    description: 'High-contrast, accessible, and responsive user interfaces with smooth micro-interactions, dark/light aesthetics, and fluid modern layouts.',
     badge: 'Design First',
     deliverables: ['Figma Prototyping & Wireframes', 'Tailwind CSS Component Systems', 'Mobile-First Responsive Layouts', 'WCAG Accessibility Standards'],
     iconName: 'Palette',
@@ -22,15 +22,15 @@ export const services: ServiceItem[] = [
     title: 'AI & Chatbot Integrations',
     description: 'Supercharge your web apps with modern Generative AI, Retrieval-Augmented Generation (RAG), and intelligent assistants using Gemini APIs.',
     badge: 'Emerging Tech',
-    deliverables: ['RAG Knowledge Base Pipelines', 'Intelligent Web Chatbots', 'Multimodal Image/Document Analysis', 'Prompt Optimization'],
-    iconName: 'Sparkles',
+    deliverables: ['RAG Knowledge Base Pipelines', 'Intelligent Web Chatbots', 'Multimodal Document Analysis', 'Prompt Optimization'],
+    iconName: 'Bot',
   },
   {
     id: 'iot-hardware',
     title: 'IoT & Smart Device Prototyping',
-    description: 'Bridge hardware and software with custom Arduino and ESP32 microcontroller systems for sensor monitoring and edge intelligence.',
+    description: 'Bridge hardware and software with custom Arduino and ESP32 microcontroller systems for sensor monitoring and edge telemetry.',
     badge: 'Hardware & IoT',
-    deliverables: ['ESP32 & Arduino Firmware', 'Sensor Telemetry Dashboards', 'Edge AI Face/Object Detection', 'Tinkercad Schematic Design'],
+    deliverables: ['ESP32 & Arduino Firmware', 'Sensor Telemetry Dashboards', 'Hardware Prototyping', 'Tinkercad Schematic Design'],
     iconName: 'Cpu',
   },
   {

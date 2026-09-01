@@ -49,12 +49,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
 
             {/* Concise Bio */}
             <p className="max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg">
-              Information Technology graduate from <span className="text-white font-semibold">University of Cebu</span> specializing in <span className="text-cyan-300 font-medium">Node.js</span>, <span className="text-cyan-300 font-medium">Next.js</span>, and <span className="text-purple-300 font-medium">UI/UX architecture</span>. Focused on high-performance web systems, accessible interfaces, and AI/IoT integrations.
+              Information Technology graduate from <span className="text-white font-semibold">University of Cebu</span> specializing in <span className="text-cyan-300 font-medium">Node.js</span>, <span className="text-cyan-300 font-medium">Next.js</span>, and <span className="text-purple-300 font-medium">UI/UX architecture</span>. Focused on high-performance web systems, accessible interfaces, and modern full-stack workflows.
             </p>
 
             {/* Core Tech Badges */}
             <div className="flex flex-wrap items-center gap-2 pt-1">
-              {['Node.js', 'Next.js 14', 'TypeScript', 'PostgreSQL', 'Tailwind CSS', 'Supabase', 'IoT / AI'].map((t) => (
+              {['Node.js', 'Next.js 14', 'TypeScript', 'PostgreSQL', 'Tailwind CSS', 'Supabase', 'REST APIs'].map((t) => (
                 <span
                   key={t}
                   className="rounded-lg border border-slate-800 bg-slate-900/80 px-3 py-1 text-xs font-medium text-slate-300 transition-colors hover:border-cyan-500/50 hover:text-cyan-300"
@@ -130,67 +130,75 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
             </div>
           </div>
 
-          {/* Right Profile Column (Col 5) */}
+          {/* Right Profile Column (Col 5) - Fluid Wave & Arch Cutout Design matching reference */}
           <div className="flex justify-center lg:col-span-5 lg:justify-end">
-            <div className="relative w-full max-w-md">
-              {/* Glow Rings */}
-              <div className="absolute -inset-2 rounded-3xl bg-gradient-to-r from-cyan-500 via-purple-600 to-sky-400 opacity-30 blur-2xl transition-all duration-700" />
+            <div className="relative w-full max-w-[380px] sm:max-w-[420px]">
+              {/* Outer Ambient Glow */}
+              <div className="absolute -inset-4 rounded-full bg-gradient-to-tr from-cyan-500/20 via-blue-600/20 to-purple-600/10 blur-3xl" />
 
-              {/* Cyber-Glass Container */}
-              <div className="group relative overflow-hidden rounded-3xl border border-cyan-500/30 bg-[#0E131F]/90 p-4 shadow-[0_0_40px_rgba(0,240,255,0.2)] backdrop-blur-xl transition-all duration-500 hover:border-cyan-400/60">
-                {/* Header status bar */}
-                <div className="mb-3 flex items-center justify-between border-b border-slate-800/80 px-2 pb-2">
-                  <div className="flex items-center space-x-1.5">
-                    <div className="h-2.5 w-2.5 rounded-full bg-rose-500/80" />
-                    <div className="h-2.5 w-2.5 rounded-full bg-amber-500/80" />
-                    <div className="h-2.5 w-2.5 rounded-full bg-emerald-500/80" />
-                  </div>
-                  <span className="font-mono text-[11px] text-cyan-400/80">
-                    profile.tsx • Akumon
-                  </span>
+              {/* Decorative Fluid Contour SVG Line */}
+              <svg
+                viewBox="0 0 400 480"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="absolute -top-3 -right-3 h-[106%] w-[106%] pointer-events-none z-20 opacity-80"
+              >
+                <path
+                  d="M 170,15 C 290,15 385,80 385,210 C 385,320 330,370 370,455 C 330,470 200,475 140,430 C 80,385 15,350 15,260 C 15,120 70,15 170,15 Z"
+                  stroke="rgba(0, 240, 255, 0.45)"
+                  strokeWidth="2"
+                  strokeDasharray="6 6"
+                  className="animate-pulse-slow"
+                />
+              </svg>
+
+              {/* Secondary Blue Wave Fluid Shape Layer */}
+              <div
+                className="absolute -inset-1 bg-gradient-to-tr from-[#0052D4] via-[#4364F7] to-[#6FB1FC] shadow-[0_15px_40px_rgba(0,122,255,0.35)] transition-transform duration-700"
+                style={{
+                  borderRadius: '42% 58% 68% 32% / 38% 42% 58% 62%',
+                  transform: 'rotate(4deg) scale(1.03)',
+                }}
+              />
+
+              {/* Main Photo Cutout Container with Asymmetric Arch / Fluid Wave Mask */}
+              <div
+                className="relative z-10 aspect-[4/5] w-full overflow-hidden bg-slate-900 border-2 border-white/20 shadow-2xl transition-transform duration-500 hover:scale-[1.01]"
+                style={{
+                  borderRadius: '45% 55% 62% 38% / 40% 40% 60% 60%',
+                }}
+              >
+                <Image
+                  src="/assets/profile.jpg"
+                  alt="Tristan Jesus V. Elvinia"
+                  fill
+                  priority
+                  className="object-cover object-top transition-transform duration-700 hover:scale-105"
+                />
+
+                {/* Subtle soft gradient at the lower fluid edge */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0D14]/80 via-transparent to-transparent opacity-50" />
+
+                {/* Pagination indicator dots along bottom curve (matching reference image) */}
+                <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex items-center space-x-2 rounded-full bg-black/40 px-3 py-1 backdrop-blur-md border border-white/10">
+                  <span className="h-2 w-2 rounded-full bg-cyan-400 shadow-[0_0_8px_#00F0FF]" />
+                  <span className="h-2 w-2 rounded-full bg-white/40" />
+                  <span className="h-2 w-2 rounded-full bg-white/40" />
                 </div>
+              </div>
 
-                {/* Profile Portrait */}
-                <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-slate-800/90 bg-slate-950">
-                  <Image
-                    src="/assets/profile.jpg"
-                    alt="Tristan Jesus V. Elvinia"
-                    fill
-                    priority
-                    className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0E131F] via-transparent to-transparent opacity-60" />
-
-                  {/* Floating badge 1 */}
-                  <div className="absolute bottom-4 left-4 flex items-center gap-2 rounded-xl border border-cyan-500/30 bg-[#0A0D14]/90 px-3 py-1.5 shadow-lg backdrop-blur-md">
-                    <Code2 className="h-4 w-4 text-cyan-400" />
-                    <div className="text-left">
-                      <p className="text-[10px] uppercase font-bold text-slate-400">Core Stack</p>
-                      <p className="text-xs font-semibold text-white">Node.js & Next.js</p>
-                    </div>
-                  </div>
-
-                  {/* Floating badge 2 */}
-                  <div className="absolute top-4 right-4 flex items-center gap-1.5 rounded-xl border border-purple-500/30 bg-[#0A0D14]/90 px-3 py-1.5 shadow-lg backdrop-blur-md">
-                    <span className="text-xs font-bold text-purple-300">Cebu City, PH</span>
-                  </div>
+              {/* Floating Stack Focus Chip */}
+              <div className="absolute -bottom-2 -left-3 z-30 flex items-center gap-2 rounded-xl border border-cyan-500/30 bg-[#0A0D14]/90 px-3.5 py-2 shadow-xl backdrop-blur-md">
+                <Code2 className="h-4 w-4 text-cyan-400" />
+                <div className="text-left">
+                  <p className="text-[10px] uppercase font-bold text-slate-400">Stack</p>
+                  <p className="text-xs font-semibold text-white">Next.js & Node.js</p>
                 </div>
+              </div>
 
-                {/* Micro metrics */}
-                <div className="mt-4 grid grid-cols-3 gap-2 text-center">
-                  <div className="rounded-xl border border-slate-800 bg-slate-900/60 p-2">
-                    <p className="font-mono text-base font-bold text-cyan-400">8+</p>
-                    <p className="text-[10px] text-slate-400 uppercase font-medium">Projects</p>
-                  </div>
-                  <div className="rounded-xl border border-slate-800 bg-slate-900/60 p-2">
-                    <p className="font-mono text-base font-bold text-purple-400">2x</p>
-                    <p className="text-[10px] text-slate-400 uppercase font-medium">Cisco Certs</p>
-                  </div>
-                  <div className="rounded-xl border border-slate-800 bg-slate-900/60 p-2">
-                    <p className="font-mono text-base font-bold text-emerald-400">100%</p>
-                    <p className="text-[10px] text-slate-400 uppercase font-medium">Committed</p>
-                  </div>
-                </div>
+              {/* Floating Location Chip */}
+              <div className="absolute -top-2 right-2 z-30 flex items-center gap-1.5 rounded-xl border border-blue-500/30 bg-[#0A0D14]/90 px-3 py-1.5 shadow-xl backdrop-blur-md">
+                <span className="text-xs font-bold text-blue-300">Cebu City, PH</span>
               </div>
             </div>
           </div>

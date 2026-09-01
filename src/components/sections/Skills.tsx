@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { skillCategories } from '../../data/skillsData';
-import { Cpu, Sparkles } from 'lucide-react';
+import { Cpu, CheckCircle2 } from 'lucide-react';
 
 export const Skills = () => {
   const [activeCategoryIndex, setActiveCategoryIndex] = useState<number>(0);
@@ -79,7 +79,7 @@ export const Skills = () => {
                 {/* Highlight Focus */}
                 {skill.highlight && (
                   <p className="mt-2.5 flex items-center gap-1.5 text-[11px] text-slate-400">
-                    <Sparkles className="h-3 w-3 text-cyan-400 shrink-0" />
+                    <CheckCircle2 className="h-3 w-3 text-cyan-400 shrink-0" />
                     <span>{skill.highlight}</span>
                   </p>
                 )}

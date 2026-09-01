@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Terminal, Sparkles, Flame } from 'lucide-react';
+import { Terminal, Flame, Cpu, Layers } from 'lucide-react';
 
 export const SuspenseLab = () => {
   const [activeTab, setActiveTab] = useState<'terminal' | 'preview'>('terminal');
@@ -27,16 +27,16 @@ export const SuspenseLab = () => {
         newLogs.push('STATUS: Online • Location: Cebu City, PH • Open to Opportunities.');
         break;
       case 'projects':
-        newLogs.push('PROJECTS: 1. UC-Coop Loan Monitoring 2. ChronoNav 3. CAMPass 4. SkyCast-OS 5. ElectionSim');
+        newLogs.push('PROJECTS: 1. UC-Coop Loan Monitoring 2. ChronoNav 3. SkyCast-OS 4. NanoWorld 5. Biodiversity Hub');
         break;
       case 'skills':
-        newLogs.push('STACK: Node.js, Next.js 14, TypeScript, PostgreSQL, Supabase, Tailwind, IoT');
+        newLogs.push('STACK: Node.js, Next.js 14, TypeScript, PostgreSQL, Supabase, Tailwind CSS');
         break;
       case 'contact':
         newLogs.push('CONTACT: tjelvinia@gmail.com | Phone: 09928571488 | LinkedIn: tristan-jesus-elvinia');
         break;
       case 'labs':
-        newLogs.push('ACTIVE R&D: [1] Project Aether (Client RAG Agent) [2] CAMPass v2.0 (Edge Mesh)');
+        newLogs.push('ACTIVE R&D: [1] Project Aether (Client RAG Agent) [2] OmniFlow Studio (API Visualizer)');
         break;
       case 'clear':
         setTerminalLogs([]);
@@ -58,7 +58,7 @@ export const SuspenseLab = () => {
         {/* Header */}
         <div className="mb-16 text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-950/40 px-4 py-1 text-xs font-semibold uppercase tracking-wider text-cyan-300 shadow-[0_0_15px_rgba(0,240,255,0.2)]">
-            <Sparkles className="h-3.5 w-3.5" />
+            <Layers className="h-3.5 w-3.5" />
             <span>Innovation & Prototyping</span>
           </div>
           <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
@@ -154,7 +154,7 @@ export const SuspenseLab = () => {
 
         {/* Tab 2: R&D Pipeline */}
         {activeTab === 'preview' && (
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 max-w-4xl mx-auto">
             <div className="rounded-2xl border border-cyan-500/20 bg-[#0E131F]/80 p-6 backdrop-blur-xl">
               <div className="mb-3 flex items-center justify-between">
                 <span className="rounded-full bg-cyan-950/60 px-3 py-1 text-[10px] font-bold uppercase text-cyan-400 border border-cyan-800/40">
@@ -171,26 +171,13 @@ export const SuspenseLab = () => {
             <div className="rounded-2xl border border-purple-500/20 bg-[#0E131F]/80 p-6 backdrop-blur-xl">
               <div className="mb-3 flex items-center justify-between">
                 <span className="rounded-full bg-purple-950/60 px-3 py-1 text-[10px] font-bold uppercase text-purple-400 border border-purple-800/40">
-                  Hardware Proto
-                </span>
-                <span className="text-xs text-slate-500 font-mono">Q4 2026</span>
-              </div>
-              <h4 className="text-lg font-bold text-white">CAMPass v2.0 Edge Mesh</h4>
-              <p className="mt-2 text-xs leading-relaxed text-slate-400">
-                Distributed biometric access node utilizing LoRa wireless mesh networking for off-grid perimeter monitoring.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-emerald-500/20 bg-[#0E131F]/80 p-6 backdrop-blur-xl">
-              <div className="mb-3 flex items-center justify-between">
-                <span className="rounded-full bg-emerald-950/60 px-3 py-1 text-[10px] font-bold uppercase text-emerald-400 border border-emerald-800/40">
                   DevTools
                 </span>
                 <span className="text-xs text-slate-500 font-mono">2026</span>
               </div>
               <h4 className="text-lg font-bold text-white">OmniFlow Studio</h4>
               <p className="mt-2 text-xs leading-relaxed text-slate-400">
-                Visual node-based API composition canvas built with Next.js to orchestrate microservices and AI workflows.
+                Visual node-based API composition canvas built with Next.js to visually orchestrate microservices and backend pipelines.
               </p>
             </div>
           </div>

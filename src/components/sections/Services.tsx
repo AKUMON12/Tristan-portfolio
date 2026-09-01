@@ -5,7 +5,7 @@ import { services } from '../../data/servicesData';
 import {
   Code,
   Palette,
-  Sparkles,
+  Bot,
   Cpu,
   FileCheck,
   Network,
@@ -16,7 +16,7 @@ import {
 const iconMap: Record<string, React.ReactNode> = {
   Code: <Code className="h-6 w-6 text-cyan-400" />,
   Palette: <Palette className="h-6 w-6 text-purple-400" />,
-  Sparkles: <Sparkles className="h-6 w-6 text-amber-400" />,
+  Bot: <Bot className="h-6 w-6 text-amber-400" />,
   Cpu: <Cpu className="h-6 w-6 text-emerald-400" />,
   FileCheck: <FileCheck className="h-6 w-6 text-sky-400" />,
   Network: <Network className="h-6 w-6 text-rose-400" />,

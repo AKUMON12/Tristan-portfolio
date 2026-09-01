@@ -31,7 +31,7 @@ export const Projects: React.FC<ProjectsProps> = ({ onSelectProject }) => {
     return () => clearTimeout(timer);
   }, []);
 
-  const categories = ['All', 'Freelance', 'Capstone', 'Personal', 'Academic', 'IoT/AI'];
+  const categories = ['All', 'Freelance', 'Capstone', 'Personal', 'Academic'];
 
   const filteredProjects =
     selectedCategory === 'All'

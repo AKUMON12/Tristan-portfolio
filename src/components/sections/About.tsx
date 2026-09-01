@@ -8,7 +8,7 @@ import {
   Terminal,
   Compass,
   Code,
-  Sparkles,
+  Layers,
 } from 'lucide-react';
 
 export const About = () => {
@@ -64,8 +64,8 @@ export const About = () => {
                 <p className="mt-1 text-[11px] text-slate-400">Tailwind CSS, responsive design, and micro-interactions.</p>
               </div>
               <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-3">
-                <p className="text-xs font-bold text-white">AI & IoT Solutions</p>
-                <p className="mt-1 text-[11px] text-slate-400">Edge hardware telemetry and Gemini LLM integrations.</p>
+                <p className="text-xs font-bold text-white">AI Solutions</p>
+                <p className="mt-1 text-[11px] text-slate-400">Retrieval systems and Gemini LLM integrations.</p>
               </div>
             </div>
           </div>
@@ -146,16 +146,16 @@ export const About = () => {
               <div className="rounded-xl border border-slate-800/80 bg-slate-900/40 p-3">
                 <p className="text-xs font-bold text-white flex items-center gap-1.5">
                   <Cpu className="h-3.5 w-3.5 text-purple-400" />
-                  <span>Edge IoT Hardware</span>
+                  <span>IoT & Embedded Systems</span>
                 </p>
                 <p className="mt-1 text-[11px] text-slate-400">
-                  ESP32-CAM on-device computer vision and sensor telemetry.
+                  ESP32 and Arduino firmware, sensor telemetry, and hardware prototypes.
                 </p>
               </div>
 
               <div className="rounded-xl border border-slate-800/80 bg-slate-900/40 p-3">
                 <p className="text-xs font-bold text-white flex items-center gap-1.5">
-                  <Sparkles className="h-3.5 w-3.5 text-amber-400" />
+                  <Layers className="h-3.5 w-3.5 text-amber-400" />
                   <span>UI/UX Design Systems</span>
                 </p>
                 <p className="mt-1 text-[11px] text-slate-400">

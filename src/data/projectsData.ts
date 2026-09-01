@@ -44,27 +44,6 @@ export const projects: Project[] = [
     }
   },
   {
-    id: 'campass-iot',
-    title: 'CAMPass – Edge AI Access Control',
-    tagline: 'On-Device Face Recognition & Real-Time Access Alerts',
-    category: 'IoT/AI',
-    description: 'Edge security access system leveraging ESP32-CAM microcontroller for on-device face recognition with instant mobile alerts.',
-    image: '/projects/campass-iot.svg',
-    techStack: ['ESP32-CAM', 'C++', 'Python', 'Firebase', 'Edge AI', 'IoT'],
-    liveUrl: 'https://github.com/AKUMON12',
-    githubUrl: 'https://github.com/AKUMON12',
-    deploymentDomain: 'campass-edge.hardware',
-    deploymentPlatform: 'Firebase',
-    branch: 'main',
-    deploymentStatus: 'Production',
-    caseStudy: {
-      problem: 'Traditional door locks lack biometric logging, while cloud recognition introduces latency and requires constant internet.',
-      roleAndApproach: 'IoT & Systems Developer — Programmed ESP32-CAM firmware, deployed on-device facial feature extraction, and created real-time alerts via Firebase.',
-      keyChallenge: 'Running lightweight facial recognition inference within strict RAM constraints of an ESP32 microcontroller.',
-      outcome: 'Achieved sub-second biometric verification on the edge without recurring cloud inference costs.'
-    }
-  },
-  {
     id: 'skycast-os',
     title: 'SkyCast Weather Intelligence',
     tagline: 'Dynamic Real-Time Meteorological Visualizer',
@@ -83,48 +62,6 @@ export const projects: Project[] = [
       roleAndApproach: 'Creator & Designer — Engineered dynamic HTML5 canvas particle engines that render weather condition visuals synced with real-time API states.',
       keyChallenge: 'Maintaining smooth 60 FPS particle physics during rapid user search and canvas resizing.',
       outcome: 'Delivered an ultra-smooth visual weather dashboard with instant city search and sub-second load times.'
-    }
-  },
-  {
-    id: 'election-simulation',
-    title: 'National Election Simulation System',
-    tagline: 'High-Concurrency Digital Ballot & Polling Visualizer',
-    category: 'Academic',
-    description: 'High-concurrency voting simulation platform with cryptographic ballot validation and live data visualization.',
-    image: '/projects/election-simulation.svg',
-    techStack: ['Next.js', 'Node.js', 'PostgreSQL', 'Tailwind CSS', 'Chart.js'],
-    liveUrl: 'https://github.com/AKUMON12',
-    githubUrl: 'https://github.com/AKUMON12',
-    deploymentDomain: 'election-simulation.local',
-    deploymentPlatform: 'Vercel',
-    branch: 'main',
-    deploymentStatus: 'Ready',
-    caseStudy: {
-      problem: 'Simulating large-scale voting scenarios requires tamper-evident verification logic and high-throughput tally aggregation.',
-      roleAndApproach: 'Full-Stack Developer — Designed atomic database transactions, vote verification hashes, and dynamic percentage charts.',
-      keyChallenge: 'Preventing race conditions and duplicate voting attempts during rapid burst traffic.',
-      outcome: 'Successfully processed thousands of simulated votes in benchmark tests with 100% ballot integrity.'
-    }
-  },
-  {
-    id: 'libmanage',
-    title: 'LibManage – Library Management System',
-    tagline: 'Full-Stack Cataloging, Circulation & Patron Tracking',
-    category: 'Academic',
-    description: 'Comprehensive Library Management Web-App built for University of Cebu to automate book cataloging, checkouts, and overdue tracking.',
-    image: '/projects/libmanage.svg',
-    techStack: ['PHP', 'MySQL', 'JavaScript', 'Bootstrap', 'Apache'],
-    liveUrl: 'https://github.com/AKUMON12',
-    githubUrl: 'https://github.com/AKUMON12',
-    deploymentDomain: 'libmanage.uc-system.edu',
-    deploymentPlatform: 'Self-Hosted',
-    branch: 'main',
-    deploymentStatus: 'Ready',
-    caseStudy: {
-      problem: 'Legacy paper cataloging caused inventory inaccuracies and long queues during peak semester borrow periods.',
-      roleAndApproach: 'Database & Backend Developer — Designed normalized MySQL schemas, query procedures, and an intuitive administrative interface.',
-      keyChallenge: 'Structuring complex SQL queries to calculate overdue fees dynamically across varied patron tiers.',
-      outcome: 'Streamlined checkout throughput and provided librarians with instant inventory search.'
     }
   },
   {
