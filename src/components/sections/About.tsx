@@ -98,7 +98,7 @@ export const About = () => {
                 <span>Current Status</span>
               </div>
               <p className="mt-1 text-xs text-slate-300">
-                Open for full-time engineering roles, contract work, and freelance full-stack projects.
+                Open for full-time IT roles, contract work, and freelance full-stack projects.
               </p>
             </div>
           </div>
@@ -147,8 +147,8 @@ export const About = () => {
               </div>
 
               <div className="rounded-xl border border-slate-800/80 bg-slate-900/40 p-3">
-                <p className="font-mono text-base font-bold text-purple-400">Top Capstone</p>
-                <p className="text-[11px] text-slate-300 font-medium">ChronoNav Recognition</p>
+                <p className="font-mono text-base font-bold text-purple-400">ChronoNav</p>
+                <p className="text-[11px] text-slate-300 font-medium">Capstone Recognition</p>
               </div>
 
               <div className="rounded-xl border border-slate-800/80 bg-slate-900/40 p-3">
@@ -156,10 +156,10 @@ export const About = () => {
                 <p className="text-[11px] text-slate-300 font-medium">Production Deployed</p>
               </div>
 
-              <div className="rounded-xl border border-slate-800/80 bg-slate-900/40 p-3">
+              {/* <div className="rounded-xl border border-slate-800/80 bg-slate-900/40 p-3">
                 <p className="font-mono text-base font-bold text-sky-400">Cybersecurity</p>
                 <p className="text-[11px] text-slate-300 font-medium">Cisco Verified</p>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
