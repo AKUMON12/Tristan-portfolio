@@ -21,8 +21,8 @@ const config: Config = {
         },
       },
       animation: {
-        marquee: "marquee 28s linear infinite",
-        "marquee-reverse": "marquee-reverse 28s linear infinite",
+        marquee: "marquee 67s linear infinite",
+        "marquee-reverse": "marquee-reverse 67s linear infinite",
         "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
         float: "float 6s ease-in-out infinite",
         glow: "glow 3s ease-in-out infinite alternate",
