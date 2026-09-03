@@ -16,6 +16,7 @@ import { Contact } from '../components/sections/Contact';
 import { Footer } from '../components/sections/Footer';
 import { ResumeModal } from '../components/modals/ResumeModal';
 import { CaseStudyModal } from '../components/modals/CaseStudyModal';
+import { ScrollToTop } from '../components/ui/ScrollToTop';
 import { Project } from '../types';
 
 export default function Home() {
@@ -74,6 +75,9 @@ export default function Home() {
         isOpen={!!selectedProject}
         onClose={() => setSelectedProject(null)}
       />
+
+      {/* Floating Back to Top Button */}
+      <ScrollToTop />
     </main>
   );
 }
