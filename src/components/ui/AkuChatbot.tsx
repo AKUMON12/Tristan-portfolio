@@ -60,7 +60,7 @@ function renderFormattedText(text: string) {
           }
           if (part.startsWith('*') && part.endsWith('*') && part.length > 2) {
             return (
-              <em key={i} className="italic text-cyan-200">
+              <em key={i} className="italic text-sky-700 dark:text-cyan-200">
                 {part.slice(1, -1)}
               </em>
             );
@@ -185,23 +185,23 @@ export const AkuChatbot: React.FC<AkuChatbotProps> = ({ onOpenResume }) => {
         <div
           role="dialog"
           aria-label="AKU — Tristan's Portfolio Assistant"
-          className="fixed bottom-20 right-4 sm:bottom-24 sm:right-6 md:right-8 z-50 flex h-[min(540px,calc(100vh-7rem))] w-[min(390px,calc(100vw-2rem))] flex-col overflow-hidden rounded-3xl border border-cyan-500/30 bg-[#0A0D14]/95 shadow-[0_0_45px_rgba(0,240,255,0.18)] backdrop-blur-xl animate-in fade-in slide-in-from-bottom-4 duration-200"
+          className="fixed bottom-20 right-4 sm:bottom-24 sm:right-6 md:right-8 z-50 flex h-[min(540px,calc(100vh-7rem))] w-[min(390px,calc(100vw-2rem))] flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white/95 shadow-[0_20px_50px_rgba(15,23,42,0.14)] backdrop-blur-xl animate-in fade-in slide-in-from-bottom-4 duration-200 dark:border-cyan-500/30 dark:bg-[#0A0D14]/95 dark:shadow-[0_0_45px_rgba(0,240,255,0.18)]"
         >
           {/* Header */}
-          <div className="flex items-center justify-between border-b border-slate-800/90 bg-gradient-to-r from-cyan-950/50 via-[#0E131F] to-purple-950/50 px-4 py-3.5">
+          <div className="flex items-center justify-between border-b border-slate-200 bg-gradient-to-r from-sky-50 via-white to-violet-50 px-4 py-3.5 dark:border-slate-800/90 dark:from-cyan-950/50 dark:via-[#0E131F] dark:to-purple-950/50">
             <div className="flex items-center gap-2.5">
-              <div className="relative flex h-9 w-9 items-center justify-center rounded-xl border border-cyan-400/40 bg-cyan-500/15 text-cyan-300 shadow-[0_0_15px_rgba(0,240,255,0.25)]">
+              <div className="relative flex h-9 w-9 items-center justify-center rounded-xl border border-sky-200 bg-sky-100 text-sky-600 shadow-sm dark:border-cyan-400/40 dark:bg-cyan-500/15 dark:text-cyan-300 dark:shadow-[0_0_15px_rgba(0,240,255,0.25)]">
                 <Bot className="h-5 w-5" />
-                <span className="absolute -bottom-0.5 -right-0.5 h-2.5 w-2.5 rounded-full border-2 border-[#0A0D14] bg-emerald-400" />
+                <span className="absolute -bottom-0.5 -right-0.5 h-2.5 w-2.5 rounded-full border-2 border-white bg-emerald-500 dark:border-[#0A0D14] dark:bg-emerald-400" />
               </div>
               <div>
                 <div className="flex items-center gap-1.5">
-                  <h3 className="font-mono text-sm font-bold tracking-wide text-white">AKU</h3>
-                  <span className="rounded-full border border-cyan-500/30 bg-cyan-500/10 px-1.5 py-0.5 font-mono text-[9px] font-semibold uppercase tracking-wider text-cyan-300">
+                  <h3 className="font-mono text-sm font-bold tracking-wide text-slate-900 dark:text-white">AKU</h3>
+                  <span className="rounded-full border border-sky-200 bg-sky-100/80 px-1.5 py-0.5 font-mono text-[9px] font-semibold uppercase tracking-wider text-sky-700 dark:border-cyan-500/30 dark:bg-cyan-500/10 dark:text-cyan-300">
                     AI Assistant
                   </span>
                 </div>
-                <p className="text-[11px] text-slate-400">AI&apos;s Knowledge Under Tristan</p>
+                <p className="text-[11px] text-slate-500 dark:text-slate-400">AI&apos;s Knowledge Under Tristan</p>
               </div>
             </div>
 
@@ -211,7 +211,7 @@ export const AkuChatbot: React.FC<AkuChatbotProps> = ({ onOpenResume }) => {
                 onClick={handleReset}
                 title="Reset conversation"
                 aria-label="Reset conversation"
-                className="rounded-lg p-1.5 text-slate-400 transition-colors hover:bg-slate-800/80 hover:text-cyan-300"
+                className="rounded-lg p-1.5 text-slate-500 transition-colors hover:bg-slate-200/70 hover:text-sky-700 dark:text-slate-400 dark:hover:bg-slate-800/80 dark:hover:text-cyan-300"
               >
                 <RotateCcw className="h-4 w-4" />
               </button>
@@ -220,7 +220,7 @@ export const AkuChatbot: React.FC<AkuChatbotProps> = ({ onOpenResume }) => {
                 onClick={() => setIsOpen(false)}
                 title="Close chat"
                 aria-label="Close chat"
-                className="rounded-lg p-1.5 text-slate-400 transition-colors hover:bg-slate-800/80 hover:text-white"
+                className="rounded-lg p-1.5 text-slate-500 transition-colors hover:bg-slate-200/70 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/80 dark:hover:text-white"
               >
                 <X className="h-4 w-4" />
               </button>
@@ -228,7 +228,7 @@ export const AkuChatbot: React.FC<AkuChatbotProps> = ({ onOpenResume }) => {
           </div>
 
           {/* Messages Area */}
-          <div className="flex-1 space-y-3 overflow-y-auto px-4 py-4">
+          <div className="flex-1 space-y-3 overflow-y-auto bg-slate-50/50 px-4 py-4 dark:bg-transparent">
             {messages.map((msg) => {
               const isUser = msg.role === 'user';
               return (
@@ -239,8 +239,8 @@ export const AkuChatbot: React.FC<AkuChatbotProps> = ({ onOpenResume }) => {
                   <div
                     className={`max-w-[85%] rounded-2xl px-3.5 py-2.5 text-xs sm:text-[13px] leading-relaxed ${
                       isUser
-                        ? 'rounded-br-sm bg-gradient-to-r from-cyan-500 to-blue-600 font-medium text-black shadow-[0_0_15px_rgba(0,240,255,0.2)]'
-                        : 'rounded-bl-sm border border-slate-800 bg-[#0E131F]/90 text-slate-200'
+                        ? 'rounded-br-sm bg-gradient-to-r from-sky-500 to-blue-600 font-medium text-slate-50 shadow-sm dark:from-cyan-500 dark:to-blue-600 dark:text-black dark:shadow-[0_0_15px_rgba(0,240,255,0.2)]'
+                        : 'rounded-bl-sm border border-slate-200 bg-white text-slate-700 shadow-sm dark:border-slate-800 dark:bg-[#0E131F]/90 dark:text-slate-200 dark:shadow-none'
                     }`}
                   >
                     {isUser ? msg.content : renderFormattedText(msg.content)}
@@ -253,7 +253,7 @@ export const AkuChatbot: React.FC<AkuChatbotProps> = ({ onOpenResume }) => {
             {messages.length === 1 && !isLoading && (
               <div className="pt-1">
                 <p className="mb-2 flex items-center gap-1 font-mono text-[10px] uppercase tracking-wider text-slate-500">
-                  <Sparkles className="h-3 w-3 text-cyan-400" />
+                  <Sparkles className="h-3 w-3 text-sky-600 dark:text-cyan-400" />
                   <span>Suggested questions</span>
                 </p>
                 <div className="flex flex-wrap gap-1.5">
@@ -262,7 +262,7 @@ export const AkuChatbot: React.FC<AkuChatbotProps> = ({ onOpenResume }) => {
                       key={prompt}
                       type="button"
                       onClick={() => sendMessage(prompt)}
-                      className="rounded-xl border border-cyan-500/25 bg-cyan-950/25 px-2.5 py-1.5 text-left text-[11px] font-medium text-cyan-200 transition-all hover:border-cyan-400/60 hover:bg-cyan-500/15 hover:text-white"
+                      className="rounded-xl border border-sky-200 bg-sky-50 px-2.5 py-1.5 text-left text-[11px] font-medium text-sky-700 transition-all hover:border-sky-400 hover:bg-sky-100 hover:text-sky-900 dark:border-cyan-500/25 dark:bg-cyan-950/25 dark:text-cyan-200 dark:hover:border-cyan-400/60 dark:hover:bg-cyan-500/15 dark:hover:text-white"
                     >
                       {prompt}
                     </button>
@@ -274,7 +274,7 @@ export const AkuChatbot: React.FC<AkuChatbotProps> = ({ onOpenResume }) => {
             {/* Typing Indicator */}
             {isLoading && (
               <div className="flex justify-start">
-                <div className="inline-flex items-center gap-2 rounded-2xl rounded-bl-sm border border-slate-800 bg-[#0E131F]/90 px-3.5 py-2.5 text-xs text-cyan-300">
+                <div className="inline-flex items-center gap-2 rounded-2xl rounded-bl-sm border border-slate-200 bg-white px-3.5 py-2.5 text-xs text-sky-600 shadow-sm dark:border-slate-800 dark:bg-[#0E131F]/90 dark:text-cyan-300 dark:shadow-none">
                   <Loader2 className="h-3.5 w-3.5 animate-spin" />
                   <span className="font-mono text-[11px]">AKU is thinking...</span>
                 </div>
@@ -283,7 +283,7 @@ export const AkuChatbot: React.FC<AkuChatbotProps> = ({ onOpenResume }) => {
 
             {/* Error Notice */}
             {error && (
-              <div className="rounded-xl border border-rose-500/30 bg-rose-950/30 px-3 py-2 text-[11px] text-rose-300">
+              <div className="rounded-xl border border-rose-200 bg-rose-50 px-3 py-2 text-[11px] text-rose-700 dark:border-rose-500/30 dark:bg-rose-950/30 dark:text-rose-300">
                 {error}
               </div>
             )}
@@ -292,7 +292,7 @@ export const AkuChatbot: React.FC<AkuChatbotProps> = ({ onOpenResume }) => {
           </div>
 
           {/* Quick Action Strip */}
-          <div className="flex items-center gap-2 border-t border-slate-800/70 bg-[#0C101A] px-3.5 py-2">
+          <div className="flex items-center gap-2 border-t border-slate-200 bg-slate-50 px-3.5 py-2 dark:border-slate-800/70 dark:bg-[#0C101A]">
             {onOpenResume && (
               <button
                 type="button"
@@ -300,18 +300,18 @@ export const AkuChatbot: React.FC<AkuChatbotProps> = ({ onOpenResume }) => {
                   setIsOpen(false);
                   onOpenResume();
                 }}
-                className="inline-flex items-center gap-1.5 rounded-lg border border-slate-800 bg-slate-900/70 px-2.5 py-1 text-[11px] font-medium text-slate-300 transition-colors hover:border-cyan-500/40 hover:text-cyan-300"
+                className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-2.5 py-1 text-[11px] font-medium text-slate-700 shadow-sm transition-colors hover:border-sky-400 hover:text-sky-700 dark:border-slate-800 dark:bg-slate-900/70 dark:text-slate-300 dark:shadow-none dark:hover:border-cyan-500/40 dark:hover:text-cyan-300"
               >
-                <FileText className="h-3 w-3 text-cyan-400" />
+                <FileText className="h-3 w-3 text-sky-600 dark:text-cyan-400" />
                 <span>View Resume</span>
               </button>
             )}
             <button
               type="button"
               onClick={handleGoToContact}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-slate-800 bg-slate-900/70 px-2.5 py-1 text-[11px] font-medium text-slate-300 transition-colors hover:border-purple-500/40 hover:text-purple-300"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-2.5 py-1 text-[11px] font-medium text-slate-700 shadow-sm transition-colors hover:border-violet-400 hover:text-violet-700 dark:border-slate-800 dark:bg-slate-900/70 dark:text-slate-300 dark:shadow-none dark:hover:border-purple-500/40 dark:hover:text-purple-300"
             >
-              <Mail className="h-3 w-3 text-purple-400" />
+              <Mail className="h-3 w-3 text-violet-600 dark:text-purple-400" />
               <span>Contact Tristan</span>
             </button>
           </div>
@@ -319,7 +319,7 @@ export const AkuChatbot: React.FC<AkuChatbotProps> = ({ onOpenResume }) => {
           {/* Input Bar */}
           <form
             onSubmit={handleSubmit}
-            className="flex items-center gap-2 border-t border-slate-800/90 bg-[#0A0D14] p-3"
+            className="flex items-center gap-2 border-t border-slate-200 bg-white p-3 dark:border-slate-800/90 dark:bg-[#0A0D14]"
           >
             <input
               ref={inputRef}
@@ -328,13 +328,13 @@ export const AkuChatbot: React.FC<AkuChatbotProps> = ({ onOpenResume }) => {
               onChange={(e) => setInput(e.target.value.slice(0, MAX_INPUT_LENGTH))}
               disabled={isLoading}
               placeholder="Ask AKU anything about Tristan..."
-              className="flex-1 rounded-xl border border-slate-800 bg-slate-950/80 px-3.5 py-2 text-xs sm:text-sm text-white placeholder-slate-500 focus:border-cyan-400 focus:outline-none disabled:opacity-60 transition-colors"
+              className="flex-1 rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2 text-xs sm:text-sm text-slate-900 placeholder-slate-400 focus:border-sky-500 focus:bg-white focus:outline-none disabled:opacity-60 transition-colors dark:border-slate-800 dark:bg-slate-950/80 dark:text-white dark:placeholder-slate-500 dark:focus:border-cyan-400 dark:focus:bg-slate-950"
             />
             <button
               type="submit"
               disabled={isLoading || !input.trim()}
               aria-label="Send message"
-              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-black shadow-[0_0_15px_rgba(0,240,255,0.3)] transition-all hover:from-cyan-400 hover:to-blue-500 disabled:cursor-not-allowed disabled:opacity-40"
+              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 text-slate-50 shadow-sm transition-all hover:from-sky-400 hover:to-blue-500 disabled:cursor-not-allowed disabled:opacity-40 dark:from-cyan-500 dark:to-blue-600 dark:text-black dark:shadow-[0_0_15px_rgba(0,240,255,0.3)] dark:hover:from-cyan-400 dark:hover:to-blue-500"
             >
               <Send className="h-4 w-4" />
             </button>
@@ -347,15 +347,15 @@ export const AkuChatbot: React.FC<AkuChatbotProps> = ({ onOpenResume }) => {
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}
         aria-label={isOpen ? 'Close AKU assistant' : 'Chat with AKU — Tristan’s AI Assistant'}
-        className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 md:bottom-8 md:right-8 z-50 group flex items-center gap-2 rounded-full border border-cyan-400/50 bg-gradient-to-r from-[#0E131F]/95 to-cyan-950/90 px-4 py-3 text-white shadow-[0_0_25px_rgba(0,240,255,0.3)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-300 hover:shadow-[0_0_35px_rgba(0,240,255,0.5)] active:scale-95"
+        className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 md:bottom-8 md:right-8 z-50 group flex items-center gap-2 rounded-full border border-sky-300 bg-white/95 px-4 py-3 text-slate-900 shadow-[0_8px_28px_rgba(2,132,199,0.2)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:border-sky-500 hover:shadow-[0_12px_32px_rgba(2,132,199,0.3)] active:scale-95 dark:border-cyan-400/50 dark:bg-gradient-to-r dark:from-[#0E131F]/95 dark:to-cyan-950/90 dark:text-white dark:shadow-[0_0_25px_rgba(0,240,255,0.3)] dark:hover:border-cyan-300 dark:hover:shadow-[0_0_35px_rgba(0,240,255,0.5)]"
       >
-        <span className="relative flex h-6 w-6 items-center justify-center rounded-full bg-cyan-500/20 text-cyan-300">
+        <span className="relative flex h-6 w-6 items-center justify-center rounded-full bg-sky-100 text-sky-600 dark:bg-cyan-500/20 dark:text-cyan-300">
           {isOpen ? <X className="h-4 w-4" /> : <MessageSquare className="h-4 w-4" />}
           {!isOpen && (
-            <span className="absolute -right-0.5 -top-0.5 h-2 w-2 rounded-full bg-emerald-400 animate-ping" />
+            <span className="absolute -right-0.5 -top-0.5 h-2 w-2 rounded-full bg-emerald-500 animate-ping dark:bg-emerald-400" />
           )}
         </span>
-        <span className="font-mono text-xs font-bold tracking-wider text-cyan-200 group-hover:text-white">
+        <span className="font-mono text-xs font-bold tracking-wider text-sky-700 group-hover:text-sky-900 dark:text-cyan-200 dark:group-hover:text-white">
           {isOpen ? 'Close AKU' : 'Ask AKU'}
         </span>
       </button>

@@ -75,8 +75,8 @@ export const Marquee: React.FC = () => {
       </div>
 
       {/* Gradient masks for smooth fade at edges */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-28 bg-gradient-to-r from-[#0A0D14] to-transparent" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-28 bg-gradient-to-l from-[#0A0D14] to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-28 bg-gradient-to-r from-[#F8FAFC] dark:from-[#0A0D14] to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-28 bg-gradient-to-l from-[#F8FAFC] dark:from-[#0A0D14] to-transparent" />
 
       {/* Infinite marquee ticker containing brand symbols and icons */}
       <div className="flex w-max animate-marquee space-x-6 hover:[animation-play-state:paused]">
