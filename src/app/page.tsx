@@ -17,6 +17,7 @@ import { Footer } from '../components/sections/Footer';
 import { ResumeModal } from '../components/modals/ResumeModal';
 import { CaseStudyModal } from '../components/modals/CaseStudyModal';
 import { ScrollToTop } from '../components/ui/ScrollToTop';
+import { AkuChatbot } from '../components/ui/AkuChatbot';
 import { Project } from '../types';
 
 export default function Home() {
@@ -78,6 +79,9 @@ export default function Home() {
 
       {/* Floating Back to Top Button */}
       <ScrollToTop />
+
+      {/* AKU — Tristan's Personal AI Portfolio Assistant */}
+      <AkuChatbot onOpenResume={() => setIsResumeOpen(true)} />
     </main>
   );
 }

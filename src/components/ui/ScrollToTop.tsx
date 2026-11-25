@@ -50,7 +50,7 @@ export const ScrollToTop: React.FC = () => {
       onClick={scrollToTop}
       aria-label="Back to top"
       title="Back to top"
-      className={`fixed bottom-5 right-5 z-40 flex items-center justify-center rounded-full border transition-all duration-300 sm:bottom-6 sm:right-6 md:bottom-8 md:right-8 ${
+      className={`fixed bottom-20 right-5 z-40 flex items-center justify-center rounded-full border transition-all duration-300 sm:bottom-24 sm:right-6 md:bottom-24 md:right-8 ${
         isVisible
           ? 'opacity-100 translate-y-0 scale-100 pointer-events-auto'
           : 'opacity-0 translate-y-3 scale-90 pointer-events-none'
