@@ -4,6 +4,9 @@ import { buildTristanKnowledgeBase, personalProfile } from '../../../data/profil
 import { projects } from '../../../data/projectsData';
 import { certifications } from '../../../data/certsData';
 
+// Allow up to 30s on Vercel serverless functions so model fallbacks have time to complete
+export const maxDuration = 30;
+
 interface IncomingMessage {
   role: 'user' | 'assistant';
   content: string;
@@ -99,6 +102,10 @@ function buildLocalFallbackReply(userMessage: string): string {
     return `Tristan is currently **${personalProfile.availability}**\n\n• **Email:** ${personalProfile.contact.email}\n• **Phone:** ${personalProfile.contact.phone}\n• **GitHub:** ${personalProfile.contact.github}\n• **LinkedIn:** ${personalProfile.contact.linkedin}\n\nYou can also view/download his resume right from the site or use the Contact form below!`;
   }
 
+  if (/(who are you|about|tristan|akumon|hello|hi|hey|introduce)/.test(q)) {
+    return `I'm **AKU** (*AI's Knowledge Under Tristan*), the personal AI assistant for **${personalProfile.fullName} (Akumon)** — a ${personalProfile.role} based in ${personalProfile.location}. Ask me about his **projects, tech stack, Cisco certifications, or how to hire him**!`;
+  }
+
   return `Hey! I'm **AKU** (AI's Knowledge Under Tristan). My AI uplink is taking a quick breather right now, but I can still tell you about Tristan's **projects, tech stack, Cisco certifications, services, or how to hire him** — or you can reach him directly at **${personalProfile.contact.email}**!`;
 }
 
@@ -166,15 +173,16 @@ export async function POST(req: NextRequest) {
     clientTimestamps.push(now);
     rateLimitMap.set(ip, clientTimestamps);
 
-    // 4. Check Gemini API Key
-    const apiKey = process.env.GEMINI_API_KEY;
+    // 4. Check Gemini API Key (strip accidental whitespace or quotes from Vercel env vars)
+    const apiKey = process.env.GEMINI_API_KEY?.trim().replace(/^["']|["']$/g, '');
     if (!apiKey) {
-      console.warn('⚠️ [AKU Chat API] GEMINI_API_KEY is not configured. Using local fallback.');
+      console.error('❌ [AKU Chat API] GEMINI_API_KEY is missing in runtime environment variables.');
       return NextResponse.json(
         {
           success: true,
           reply: buildLocalFallbackReply(lastMessage.content),
           fallback: true,
+          fallbackReason: 'missing_api_key',
         },
         { status: 200 }
       );
@@ -191,6 +199,7 @@ export async function POST(req: NextRequest) {
     }));
 
     let reply: string | undefined;
+    const modelErrors: string[] = [];
 
     for (const model of models) {
       try {
@@ -198,16 +207,19 @@ export async function POST(req: NextRequest) {
         if (reply) break;
       } catch (modelErr: unknown) {
         const msg = modelErr instanceof Error ? modelErr.message : String(modelErr);
+        modelErrors.push(`${model}: ${msg}`);
         console.warn(`⚠️ [AKU Chat API] Model "${model}" unavailable (${msg}). Trying next fallback...`);
       }
     }
 
     if (!reply) {
+      console.error('❌ [AKU Chat API] All Gemini models failed:', modelErrors.join(' | '));
       return NextResponse.json(
         {
           success: true,
           reply: buildLocalFallbackReply(lastMessage.content),
           fallback: true,
+          fallbackReason: 'models_unavailable',
         },
         { status: 200 }
       );
